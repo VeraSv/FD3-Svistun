@@ -1,0 +1,10 @@
+.Table {
+    border: solid 1px black;
+
+   
+}
+
+td {
+    border: solid 1px black;
+    box-sizing: border-box;
+}
