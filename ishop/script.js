@@ -35,8 +35,8 @@ var MyTable = React.createClass({
             React.DOM.td(null,null),
             React.DOM.td(null,"Название"),
             React.DOM.td(null,"Цена"),
-            React.DOM.td({className:'Count'},"Остаток"),
-            React.DOM.td({className:'URL'},"URL"),);
+            React.DOM.td(null,"Остаток"),
+            React.DOM.td(null,"URL"),);
             tableRows.push(titleTable);    
         goodsH.forEach(drawRow);
          function drawRow(i) {
@@ -45,8 +45,8 @@ var MyTable = React.createClass({
                 React.DOM.img({src:i.img}, null)), 
            React.DOM.td(null, i.name),
            React.DOM.td(null, i.price),
-           React.DOM.td({className:'Count'}, i.count),
-           React.DOM.td({className:'URL'}, i.url),);
+           React.DOM.td(null, i.count),
+           React.DOM.td(null, i.url),);
            tableRows.push(nameGood);
         }
       return React.DOM.div( {className:'MyTable'}, 
