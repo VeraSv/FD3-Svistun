@@ -8,12 +8,18 @@ var Shop = React.createClass({
      shop: React.PropTypes.string,
      goods: React.PropTypes.array,
     },  
-    selectedRow: function() {
 
+    getInitialState: function() {
+      return { 
+       selectedGood:' '
+      };
+    },
+    select:function(nameGood) {
+      this.setState({selectedGood:nameGood})
     },
   render: function(){
      var good=this.props.goods.map(i =>
-      React.createElement(Goods, {key:i.name,id:i.name, select:this.selectedRow, name:i.name, img:i.img, price:i.price, count:i.count, url:i.url}))
+      React.createElement(Goods, {key:i.name,id:i.name, selectedGood:this.state.selectedGood, select:this.select,name:i.name, img:i.img, price:i.price, count:i.count, url:i.url}))
     return React.DOM.div( {className:'Shop'}, 
       React.DOM.h1( null, this.props.shop ),
       React.DOM.table({className:'Table'}, 

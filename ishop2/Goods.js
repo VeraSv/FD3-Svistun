@@ -9,15 +9,15 @@ var Goods = React.createClass({
        
        name: React.PropTypes.string.isRequired,
        id: React.PropTypes.string.isRequired,
+       selectedGood:React.PropTypes.string.isRequired,
        select:React.PropTypes.func.isRequired,
        price:React.PropTypes.string.isRequired,
        count:React.PropTypes.number.isRequired,
        url: React.PropTypes.string.isRequired,
       }, 
       selectedRow: function() {
-        var goodH=document.getElementsByTagName('tr');
-        for(var i=0;  i<goodH.length; i++) goodH[i].style.background=('white')
-         document.getElementById(this.props.id).style.background=('red')
+        this.props.select(this.props.id)
+    
       }, 
 
       deleteRow: function() {
@@ -26,8 +26,11 @@ var Goods = React.createClass({
       },
      
     render: function(){
-        
-      return React.DOM.tr( {key:this.props.name,id:this.props.name, onClick:this.selectedRow,}, 
+      var color='';
+        if (this.props.selectedGood==this.props.id) {
+          color='red';
+        } else color='white';
+      return React.DOM.tr( {key:this.props.name,id:this.props.name, style:{background:color}, onClick:this.selectedRow,}, 
         React.DOM.td(null,
           React.DOM.img({src:this.props.img}, null)), 
      React.DOM.td(null, this.props.name),
