@@ -21,7 +21,7 @@ var MyTable = React.createClass({
         if(checkbox.checked==true) { 
           this.setState({sort:true})
         } else  this.setState({sort:false})
-       
+      
       },
 
       searchStr: function(EO) {
@@ -37,6 +37,7 @@ var MyTable = React.createClass({
       },
       reset: function() {
         this.setState({listH:this.props.list});
+        this.setState({sort:false})
        document.querySelector('.search').value='';
         document.querySelector('.checkbox').checked=false;
       },

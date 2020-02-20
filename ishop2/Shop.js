@@ -1,5 +1,3 @@
-
-
 var Shop = React.createClass({
 
   displayName: 'Shop',
@@ -11,15 +9,25 @@ var Shop = React.createClass({
 
     getInitialState: function() {
       return { 
-       selectedGood:' '
+       selectedGood:' ',
+       delete:' ',
+       goods:this.props.goods
       };
+    },
+    deleteGood: function(a) {
+     var goodH= this.state.goods.filter(x=>(x.name!=a));
+     this.setState({goods:goodH})
     },
     select:function(nameGood) {
       this.setState({selectedGood:nameGood})
     },
   render: function(){
-     var good=this.props.goods.map(i =>
-      React.createElement(Goods, {key:i.name,id:i.name, selectedGood:this.state.selectedGood, select:this.select,name:i.name, img:i.img, price:i.price, count:i.count, url:i.url}))
+     var good=this.state.goods.map(i=>
+      
+      React.createElement(Goods, {key:i.name,id:i.name,  deleteGood:this.deleteGood, selectedGood:this.state.selectedGood, select:this.select,name:i.name, img:i.img, price:i.price, count:i.count, url:i.url})
+      
+     )
+              
     return React.DOM.div( {className:'Shop'}, 
       React.DOM.h1( null, this.props.shop ),
       React.DOM.table({className:'Table'}, 

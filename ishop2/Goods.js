@@ -6,10 +6,12 @@ var Goods = React.createClass({
     displayName: 'Goods',
 
      propTypes: {
-       
+       img:React.PropTypes.string.isRequired,
+      
        name: React.PropTypes.string.isRequired,
        id: React.PropTypes.string.isRequired,
        selectedGood:React.PropTypes.string.isRequired,
+       deleteGood:React.PropTypes.func.isRequired,
        select:React.PropTypes.func.isRequired,
        price:React.PropTypes.string.isRequired,
        count:React.PropTypes.number.isRequired,
@@ -22,7 +24,8 @@ var Goods = React.createClass({
 
       deleteRow: function() {
         var question=confirm('Удалить товар?');
-        if (question) document.getElementById(this.props.id).style.display=('none');
+        
+        if (question) this.props.deleteGood(this.props.name)
       },
      
     render: function(){
