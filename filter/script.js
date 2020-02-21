@@ -23,7 +23,7 @@ var MyTable = React.createClass({
        
         if(this.state.sortCheked==true) { 
           this.setState({sortCheked:false})
-          this.setState({key1:resetSort})
+          this.setState({key1:'resetSort'})
         } else {
            this.setState({sortCheked:true})
            this.setState({key1:'chekedSort'})
