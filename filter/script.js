@@ -13,11 +13,13 @@ var MyTable = React.createClass({
           listH:this.props.list,
           searchValue:'',
           sortChecked:false,
+          list:[]
         };
       },
 
       sortList: function(EO) {
-          this.setState({sortChecked:EO.target.checked})    
+          this.setState({sortChecked:EO.target.checked}) ;
+          this.drawList();   
       },
 
       searchStr: function(EO) {
@@ -31,7 +33,7 @@ var MyTable = React.createClass({
         });
         this.setState({listH:newList})
         this.setState({searchValue:str});
-        
+        this.drawList();
       },
       reset: function() {
         this.setState({listH:this.props.list});
@@ -39,22 +41,26 @@ var MyTable = React.createClass({
         this.setState({sortChecked:false});
       },
       
+      drawList: function() {
+        var l=[]
+        if(this.state.listH) {
+  
+         if(this.state.sortChecked==false)
+             {this.state.listH.forEach(function(i) {
+           var item=React.DOM.option({key:i}, i)
+             l.push(item)
+             });} else {
+              this.state.listH.slice().sort().forEach(function(i) {
+                var item=React.DOM.option({key:i}, i)
+                l.push(item)
+                  });
+             }
+        }
+        this.setState({list:l})
+      },
     render: function(){
       
-       var list= [];
-      if(this.state.listH) {
-
-       if(this.state.sortChecked==false)
-           {this.state.listH.forEach(function(i) {
-         var item=React.DOM.option({key:i}, i)
-           list.push(item)
-           });} else {
-            this.state.listH.slice().sort().forEach(function(i) {
-              var item=React.DOM.option({key:i}, i)
-                list.push(item)
-                });
-           }
-      }
+       
            
       return React.DOM.div( {className:'MyTable'}, 
       React.DOM.input( {type:'checkbox', className:'checkbox',checked:this.state.sortChecked, onClick:this.sortList}),
@@ -62,7 +68,7 @@ var MyTable = React.createClass({
         React.DOM.input({type:'button',value:"Сброс",className:'reset', onClick:this.reset }), 
         
          React.DOM.form(null,
-          React.DOM.select({className:'select', size:5, },list )))
+          React.DOM.select({className:'select', size:5, },this.state.list )))
     },
   
   });
