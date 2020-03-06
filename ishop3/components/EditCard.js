@@ -97,7 +97,7 @@ class EditCard extends React.Component {
          }
       }
       
-      saveRow=()=>{
+      saveRow=()=> {
        this.props.editCard(this.props.id,this.state.newCard);
        this.props.select('');
       this.setState({validName:'',disabled:false});

@@ -36,7 +36,7 @@ class Goods extends React.Component {
          var question=confirm('Удалить товар?');
         
          if (question) this.props.deleteGood(this.props.name);
-        EO.stopPropagation();     
+        EO.stopPropagation();    
         }
         else { this.props.select(this.props.name)
           this.props.setDisabled(false)

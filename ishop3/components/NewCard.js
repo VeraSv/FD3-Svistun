@@ -35,7 +35,7 @@ class NewCard extends React.Component {
     this.props.select('');
     this.setState({validName:'',addDisabled:false});
     this.props.disabled(false);
-    this.props.editDesabled(false)
+    this.props.editDesabled(false);
   }
 
   newName=(EO)=>{
