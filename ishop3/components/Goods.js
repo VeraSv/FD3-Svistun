@@ -4,41 +4,52 @@ import PropTypes from 'prop-types';
 
 class Goods extends React.Component {
 
-   // displayName: 'Goods',
-
-   static propTypes = {
-       name: PropTypes.string.isRequired,
-       id: PropTypes.string.isRequired,
-       selectedGood:PropTypes.string.isRequired,
-       deleteGood:PropTypes.func.isRequired,
-       drawCard:PropTypes.func.isRequired,
-       edit:PropTypes.func.isRequired,
-       select:PropTypes.func.isRequired,
-       price:PropTypes.string.isRequired,
-       count:PropTypes.number.isRequired,
-       url: PropTypes.string.isRequired,
-      } 
-      selectedRow=() =>{
-        this.props.select(this.props.name)
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    selectedGood:PropTypes.string.isRequired,
+    deleteGood:PropTypes.func.isRequired,
+    drawCard:PropTypes.func.isRequired,
+    editDisabled:PropTypes.bool.isRequired,
+    select:PropTypes.func.isRequired,
+    price:PropTypes.string.isRequired,
+    count:PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    setDisabled:PropTypes.func.isRequired,
+    disabled:PropTypes.bool.isRequired,
+    selectedState:PropTypes.bool.isRequired,
+    changeCard:PropTypes.bool.isRequired
+  } 
+    
+  selectedRow=(EO) =>{
+    if(this.props.selectedGood!='new'){
+          
+      if (this.props.changeCard==false) { 
+        if(EO.target.value=='Edit') {
+         
+          this.props.select('edit');
+          this.props.setDisabled(true)
+          this.props.drawCard([{name:this.props.name, price:this.props.price, count:this.props.count, url:this.props.url}])
+        }
+       else if(EO.target.value=='Delete') {
+         EO.preventDefault();
+         var question=confirm('Удалить товар?');
         
-        this.props.drawCard([{name:this.props.name, price:this.props.price, count:this.props.count, url:this.props.url}])
-      }
+         if (question) this.props.deleteGood(this.props.name);
+                  
+        }
+        else { this.props.select(this.props.name)
+          this.props.setDisabled(false)
+          this.props.drawCard([{name:this.props.name, price:this.props.price, count:this.props.count, url:this.props.url}])
+        }
       
-      editRow =() =>{
-        this.props.edit('edit');
-        
-         this.props.drawCard([{name:this.props.name, price:this.props.price, count:this.props.count, url:this.props.url}])
-      } 
-
-      deleteRow=()=> {
-        var question=confirm('Удалить товар?');
-        
-        if (question) this.props.deleteGood(this.props.name)
       }
-     
+    }
+  }
+               
     render(){
       var color='';
-        if (this.props.selectedGood==this.props.name) {
+        if (this.props.selectedState==true) {
           color='red';
         } else color='white';
       return(<tr key={this.props.name} id={this.props.name} style={{background:color}} onClick={this.selectedRow}> 
@@ -48,8 +59,8 @@ class Goods extends React.Component {
       <td>{this.props.count}</td>
       <td>{this.props.url}</td>
         <td>
-        <input type={'button'} value={'Edit'} onClick={this.editRow}/>
-     <input type={'button'} value={'Delete'} onClick={this.deleteRow}/>
+        <input type={'button'} value={'Edit'} onClick={this.selectedRow} disabled={this.props.editDisabled}/>
+     <input type={'button'} value={'Delete'} onClick={this.selectedRow} disabled={this.props.disabled}/>
      
     </td>
       </tr>

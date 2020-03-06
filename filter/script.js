@@ -19,7 +19,7 @@ var MyTable = React.createClass({
 
       sortList: function(EO) {
           this.setState({sortChecked:EO.target.checked}) ;
-          this.drawList();   
+          
       },
 
       searchStr: function(EO) {
@@ -33,7 +33,7 @@ var MyTable = React.createClass({
         });
         this.setState({listH:newList})
         this.setState({searchValue:str});
-        this.drawList();
+        
       },
       reset: function() {
         this.setState({listH:this.props.list});
@@ -59,8 +59,21 @@ var MyTable = React.createClass({
         this.setState({list:l})
       },
     render: function(){
-      
-       
+      var l=[]
+      if(this.state.listH) {
+
+       if(this.state.sortChecked==false)
+           {this.state.listH.forEach(function(i) {
+         var item=React.DOM.option({key:i}, i)
+           l.push(item)
+           });} else {
+            this.state.listH.slice().sort().forEach(function(i) {
+              var item=React.DOM.option({key:i}, i)
+              l.push(item)
+                });
+           }
+      }
+      this.setState({list:l})
            
       return React.DOM.div( {className:'MyTable'}, 
       React.DOM.input( {type:'checkbox', className:'checkbox',checked:this.state.sortChecked, onClick:this.sortList}),

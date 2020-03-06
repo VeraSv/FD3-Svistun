@@ -9,63 +9,80 @@ import EditCard from './EditCard';
 import NewCard from './NewCard';
 
 class Shop extends  React.Component {
-
-   // displayName: 'Shop',
-    static propTypes = {
-     
-       shop: PropTypes.string,
-       goods: PropTypes.array,
-      }
+ 
+  static propTypes = {
+    shop: PropTypes.string,
+    goods: PropTypes.array,
+  }
       
-      state = {
-         selectedGood:' ',
-         delete:' ',
-         goods:this.props.goods,
-         cardH:[],
-         stateCard:'',
-         name:'',
-         count:0,
-         price:'',
-         url:''
-        };
-      
-       drawCard=(cardH) => {
-         this.setState({cardH:cardH})
-         
-       }
-        
-       edit=(st)=>{
-         this.setState({stateCard:st})
-       }
+  state = {
+    selectedGood:' ',
+    goods:this.props.goods,
+    cardH:[],
+    disabled:false,
+    editDisabled:false,
+    changeCard:false,
+  };
 
-       newCard=()=>{
-        this.setState({stateCard:'new'})
-        this.setState({selectedGood:' '})
-       }
-      deleteGood= (a) => {
-       var goodH= this.state.goods.filter(x=>(x.name!=a));
-       this.setState({goods:goodH})
-      }
-      
-      newName=(value)=>{
-        this.setState({name:value})
-      }
-      select= (nameGood)=> {
-        this.setState({selectedGood:nameGood})
-      }
+  changeCard=(value)=>{
+    this.setState({changeCard:value}) //проверка были ли изменения в карточке
+  }
+  drawCard=(cardH) => {
+    this.setState({cardH:cardH})
+  }
+        
+  editDisabled=(value)=>{
+    this.setState({editDisabled:value});
+  }
 
-    render () {
-       var good=this.state.goods.map(i=>
-        
-        <Goods key={i.name} id={i.name} edit={this.edit} drawCard={this.drawCard} deleteGood={this.deleteGood} selectedGood={this.state.selectedGood} select={this.select} name={i.name} price={i.price} count={i.count} url={i.url}
-        
-       />)
+
+  newCard=()=>{                           //кнопка новый
+    this.setState({disabled:true});
+    this.setState({editDisabled:true});
+    this.setState({selectedGood:'new'})
+  }
+  deleteGood= (a) => {
+    var goodH= this.state.goods.filter(x=>(x.name!=a));
+    this.setState({goods:goodH})
+  }
+      
+  newName=(value)=>{                           //создание нового товара
+    var good=[];
+    good.push(value)
+    var goods=this.state.goods.concat(good)
+    this.setState({goods:goods})
+  }
+  select= (nameGood)=> {
+    this.setState({selectedGood:nameGood})
+  }
+  disabled=(value)=> {
+    this.setState({disabled:value})
+  }
+
+  editCard=(id,card)=>{
+    var goods=this.state.goods.map(i=> {if(i.name==id) i=card; return i });
+    this.setState({goods:goods})
+  }
+  
+  render () {
+    var selectedState;
+    var good=this.state.goods.map(i=>{
+    if(this.state.selectedGood==i.name) selectedState=true; else selectedState=false;
+      return <Goods key={i.name} id={i.name} changeCard={this.state.changeCard} selectedState={selectedState} 
+      disabled={this.state.disabled} setDisabled={this.disabled} editDisabled={this.state.editDisabled}
+      drawCard={this.drawCard} deleteGood={this.deleteGood} selectedGood={this.state.selectedGood} select={this.select} 
+      name={i.name} price={i.price} count={i.count} url={i.url} />})
+
        var card=''
-       if (this.state.stateCard=='new') card= <NewCard edit={this.edit} newName={this.newName} />;
+       if (this.state.selectedGood=='new') card= <NewCard select={this.select} editDesabled={this.editDisabled}
+        newName={this.newName}  disabled={this.disabled} />;
       else card=this.state.cardH.map(i=> {  
-        if  (this.state.stateCard=='edit') return <EditCard  key={i.name} id={i.name} stateCard={this.state.stateCard} name={i.name} price={i.price} count={i.count} url={i.url} />
+        if  (this.state.selectedGood=='edit') return <EditCard  key={i.name} id={i.name}  changeCard={this.changeCard} 
+        setDisabled={this.disabled}  editCard={this.editCard} select={this.select} name={i.name} price={i.price} 
+        count={i.count} url={i.url} />
       
-      else if (this.state.selectedGood==i.name) return  <Card key={i.name} id={i.name} name={i.name} price={i.price} count={i.count} url={i.url} />})
+      else if (this.state.selectedGood==i.name) return  <Card key={i.name} id={i.name} name={i.name} price={i.price}
+       count={i.count} url={i.url} />})
       
        
       return ( <div className='Shop'> 
@@ -73,10 +90,10 @@ class Shop extends  React.Component {
         <table className='Table'>
           <tbody>
            <tr  key='title'>
-            <td> {"Название"} </td>
-           <td> {"Цена"}  </td>
-            <td> {"Остаток"}  </td>
-            <td> {"URL"}  </td>
+            <td> {"Название"}</td>
+           <td>{"Цена"}</td>
+            <td>{"Остаток"}</td>
+            <td>{"URL"} </td>
        <td>{"Control"}</td>
        </tr> 
             {good}
@@ -84,7 +101,7 @@ class Shop extends  React.Component {
        
       </tbody>
       </table>
-      <input type={'button'} value={'New product'} onClick={this.newCard}/> 
+      <input type={'button'} value={'New product'} onClick={this.newCard} disabled={this.state.disabled}/> 
         {<div>{card} </div>}
        
       </div>
