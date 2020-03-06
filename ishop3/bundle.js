@@ -30352,10 +30352,11 @@ var Goods = function (_React$Component) {
             _this.props.setDisabled(true);
             _this.props.drawCard([{ name: _this.props.name, price: _this.props.price, count: _this.props.count, url: _this.props.url }]);
           } else if (EO.target.value == 'Delete') {
-            EO.preventDefault();
+
             var question = confirm('Удалить товар?');
 
             if (question) _this.props.deleteGood(_this.props.name);
+            EO.stopPropagation();
           } else {
             _this.props.select(_this.props.name);
             _this.props.setDisabled(false);
@@ -30643,6 +30644,10 @@ var EditCard = function (_React$Component) {
       }
     }, _this.saveRow = function () {
       _this.props.editCard(_this.props.id, _this.state.newCard);
+      _this.props.select('');
+      _this.setState({ validName: '', disabled: false });
+      _this.props.setDisabled(false);
+      _this.props.changeCard(false);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -30827,6 +30832,10 @@ var NewCard = function (_React$Component) {
       _this.props.editDesabled(false);
     }, _this.newRow = function () {
       _this.props.newName(_this.state.newCard);
+      _this.props.select('');
+      _this.setState({ validName: '', addDisabled: false });
+      _this.props.disabled(false);
+      _this.props.editDesabled(false);
     }, _this.newName = function (EO) {
       var newCard = _this.state.newCard;
       newCard.name = EO.target.value;

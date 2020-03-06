@@ -31,7 +31,11 @@ class NewCard extends React.Component {
   }
 
   newRow=()=>{
-    this.props.newName(this.state.newCard)
+    this.props.newName(this.state.newCard);
+    this.props.select('');
+    this.setState({validName:'',addDisabled:false});
+    this.props.disabled(false);
+    this.props.editDesabled(false)
   }
 
   newName=(EO)=>{

@@ -32,11 +32,11 @@ class Goods extends React.Component {
           this.props.drawCard([{name:this.props.name, price:this.props.price, count:this.props.count, url:this.props.url}])
         }
        else if(EO.target.value=='Delete') {
-         EO.preventDefault();
+        
          var question=confirm('Удалить товар?');
         
          if (question) this.props.deleteGood(this.props.name);
-                  
+        EO.stopPropagation();     
         }
         else { this.props.select(this.props.name)
           this.props.setDisabled(false)
