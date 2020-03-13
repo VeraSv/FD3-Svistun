@@ -13,7 +13,7 @@ class RainbowFrame extends React.Component {
    var s=this.props.text.split(/<|>/g);
    var re=/br ?\/?/;
    var l=[];
-   s.map((i)=>{
+   s.array.forEach((i)=>{
      if (re.test(i)) i=<br></br>;
      l.push(i)
    })
