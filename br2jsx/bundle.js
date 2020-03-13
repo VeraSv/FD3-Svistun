@@ -30188,14 +30188,14 @@ var RainbowFrame = function (_React$Component) {
     key: 'render',
     value: function render() {
 
-      var s = this.props.text.match(/[а-я]+([^(<br ?\/?>)])/g);
-
+      var s = this.props.text.split(/<|>/g);
+      var re = /br ?\/?/;
       var l = [];
       s.map(function (i) {
-        var br = _react2.default.createElement('br', null);
+        if (re.test(i)) i = _react2.default.createElement('br', null);
         l.push(i);
-        l.push(br);
       });
+
       return _react2.default.createElement(
         'div',
         { className: 'Block' },
