@@ -30191,7 +30191,7 @@ var RainbowFrame = function (_React$Component) {
       var s = this.props.text.split(/<|>/g);
       var re = /br ?\/?/;
       var l = [];
-      s.map(function (i) {
+      s.forEach(function (i) {
         if (re.test(i)) i = _react2.default.createElement('br', null);
         l.push(i);
       });
