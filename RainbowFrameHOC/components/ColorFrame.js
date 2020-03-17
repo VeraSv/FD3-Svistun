@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RainbowFrame from './RainbowFrame';
+import {withRainbowFrame} from './withRainbowFrame';
+import Fragment from './Fragment'
 import './ColorFrame.css'
 
 class ColorFrame extends React.Component {
-    render() { let colors = ['red','orange', 'yellow','green', '#00BFFF', 'blue', 'purple'];
+    render() { 
+      let colors = ['red','orange', 'yellow','green', '#00BFFF', 'blue', 'purple'];
+      let FramedFragment=withRainbowFrame(colors)(Fragment);
     return (
-        <RainbowFrame colors={colors}>
-          <div className='Block'>Hello!</div>
-        </RainbowFrame>
+      <FramedFragment>
+      Hello!
+    </FramedFragment>
       );
 }
 }

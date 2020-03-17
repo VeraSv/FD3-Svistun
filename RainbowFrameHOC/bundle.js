@@ -29228,11 +29228,13 @@ var _propTypes = __webpack_require__(6);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _RainbowFrame = __webpack_require__(24);
+var _withRainbowFrame = __webpack_require__(24);
 
-var _RainbowFrame2 = _interopRequireDefault(_RainbowFrame);
+var _Fragment = __webpack_require__(25);
 
-__webpack_require__(25);
+var _Fragment2 = _interopRequireDefault(_Fragment);
+
+__webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29255,14 +29257,11 @@ var ColorFrame = function (_React$Component) {
     key: 'render',
     value: function render() {
       var colors = ['red', 'orange', 'yellow', 'green', '#00BFFF', 'blue', 'purple'];
+      var FramedFragment = (0, _withRainbowFrame.withRainbowFrame)(colors)(_Fragment2.default);
       return _react2.default.createElement(
-        _RainbowFrame2.default,
-        { colors: colors },
-        _react2.default.createElement(
-          'div',
-          { className: 'Block' },
-          'Hello!'
-        )
+        FramedFragment,
+        null,
+        'Hello!'
       );
     }
   }]);
@@ -30161,7 +30160,50 @@ module.exports = function() {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+   value: true
+});
+exports.withRainbowFrame = undefined;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function withRainbowFrame(colors) {
+
+   return function (Fragment) {
+      return function (props) {
+         var code = _react2.default.createElement(
+            Fragment,
+            null,
+            props.children
+         );
+         colors.forEach(function (i) {
+            return code = _react2.default.createElement(
+               "div",
+               { style: { border: "solid 5px " + i, padding: "10px" } },
+               "  ",
+               code,
+               " "
+            );
+         });
+         return code;
+      };
+   };
+}
+
+exports.withRainbowFrame = withRainbowFrame;
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -30182,51 +30224,33 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var RainbowFrame = function (_React$Component) {
-  _inherits(RainbowFrame, _React$Component);
+var Fragment = function (_React$Component) {
+    _inherits(Fragment, _React$Component);
 
-  function RainbowFrame() {
-    _classCallCheck(this, RainbowFrame);
+    function Fragment() {
+        _classCallCheck(this, Fragment);
 
-    return _possibleConstructorReturn(this, (RainbowFrame.__proto__ || Object.getPrototypeOf(RainbowFrame)).apply(this, arguments));
-  }
-
-  _createClass(RainbowFrame, [{
-    key: 'render',
-    value: function render() {
-
-      if (this.props.colors.length == 0) return this.props.children;
-      /*
-       function f(a,i) {
-       return <div style={{border:"solid 5px "+i ,padding:"10px"}}>{a}</div>
-           
-       };
-      var div= this.props.colors.reduce(f,this.props.children)*/
-      else return (
-          //div
-          _react2.default.createElement(
-            'div',
-            { style: { border: "solid 5px " + this.props.colors[0], padding: "10px" } },
-            _react2.default.createElement(
-              RainbowFrame,
-              { colors: this.props.colors.slice(1) },
-              this.props.children
-            )
-          )
-        );
+        return _possibleConstructorReturn(this, (Fragment.__proto__ || Object.getPrototypeOf(Fragment)).apply(this, arguments));
     }
-  }]);
 
-  return RainbowFrame;
+    _createClass(Fragment, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'Fragment' },
+                this.props.children
+            );
+        }
+    }]);
+
+    return Fragment;
 }(_react2.default.Component);
 
-RainbowFrame.propTypes = {
-  colors: _propTypes2.default.array.isRequired
-};
-exports.default = RainbowFrame;
+exports.default = Fragment;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
