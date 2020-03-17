@@ -9,14 +9,23 @@ class RainbowFrame extends React.Component {
   };
   
   render() {
-       var s=this.props.text.split(/<|>/g);
+  /*var s=this.props.text.split(/<|>/g);
    var re=/br ?\/?/;
    var l=[];
    s.forEach((i)=>{
      if (re.test(i)) i=<br></br>;
      l.push(i)
-   })
- 
+   })*/
+  var s=this.props.text.split(/<br *\/?>/i);
+  var l=[];
+  s.forEach((a,i)=>{
+    if(i) {
+      l.push(<br />)
+    }
+      l.push(a);
+      return l
+    
+  })
      return (
       <div className='Block'>{l}</div>
     );

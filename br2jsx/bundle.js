@@ -30187,15 +30187,22 @@ var RainbowFrame = function (_React$Component) {
   _createClass(RainbowFrame, [{
     key: 'render',
     value: function render() {
-
-      var s = this.props.text.split(/<|>/g);
-      var re = /br ?\/?/;
+      /*var s=this.props.text.split(/<|>/g);
+       var re=/br ?\/?/;
+       var l=[];
+       s.forEach((i)=>{
+         if (re.test(i)) i=<br></br>;
+         l.push(i)
+       })*/
+      var s = this.props.text.split(/<br *\/?>/i);
       var l = [];
-      s.forEach(function (i) {
-        if (re.test(i)) i = _react2.default.createElement('br', null);
-        l.push(i);
+      s.forEach(function (a, i) {
+        if (i) {
+          l.push(_react2.default.createElement('br', null));
+        }
+        l.push(a);
+        return l;
       });
-
       return _react2.default.createElement(
         'div',
         { className: 'Block' },
