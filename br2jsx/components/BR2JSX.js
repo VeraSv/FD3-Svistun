@@ -24,7 +24,6 @@ class RainbowFrame extends React.Component {
     }
       l.push(a);
       return l
-    
   })
      return (
       <div className='Block'>{l}</div>
