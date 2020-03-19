@@ -29,7 +29,6 @@ class RainbowFrame extends React.Component {
       <div className='Block'>{l}</div>
     );
   }
-
 }
 
 export default RainbowFrame;
