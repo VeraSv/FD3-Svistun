@@ -27362,7 +27362,7 @@ var Mobile = function (_React$PureComponent) {
         });
       });
       if (this.state.add == true) {
-        var x = Math.round(Math.random() * 9 / 0.1) * 0.1 + 1;card = _react2.default.createElement(_AddClient2.default, { id: x });
+        var x = Math.floor().random() * 9 + 1;card = _react2.default.createElement(_AddClient2.default, { id: x });
       }
       if (!this.state.list.length) this.state.list = this.state.clients;
       var clients = this.state.list.map(function (i) {

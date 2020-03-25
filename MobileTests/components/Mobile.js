@@ -116,7 +116,7 @@ addCard=(value)=>{
     if(this.state.edit==true) card=this.state.clientH.map(i=>
       { return <EditClient  key={i.id} id={i.id} name={i.name} surname={i.surname} middleName={i.middleName} balance={i.balance}
       />});
-      if(this.state.add==true) {var x=Math.round(Math.random()*9/0.1)*0.1+1; card=<AddClient id={x}/>}
+      if(this.state.add==true) {var x=Math.floor().random()*9+1; card=<AddClient id={x}/>}
       if(!this.state.list.length) this.state.list=this.state.clients
 var clients=this.state.list.map(i=>
   { return <MobileClient key={i.id} client={i}
