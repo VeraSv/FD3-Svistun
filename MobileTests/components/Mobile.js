@@ -29,13 +29,7 @@ class Mobile extends React.PureComponent {
     add:false  
   };
 
-  setName1 = () => {
-    this.setState({companyName:'Velcom'});
-  };
-
-  setName2 = () => {
-    this.setState({companyName:'МТС'});
-  };
+ 
 
 allClients=() =>{
   this.setState({list:this.state.clients})
@@ -123,12 +117,11 @@ var clients=this.state.list.map(i=>
   />})
     return (
       <div className='MobileCompany'>
-        <input type="button" value="Velcom"  onClick={this.setName1}/>
-        <input type="button" value="МТС"  onClick={this.setName2}/>
+       
       
         <div className='MobileCompanyName'>Компания:{this.state.companyName}</div>
         <br></br>
-        <input type="button" value="Все"  onClick={this.allClients}/>
+        <input type="button" value="Все" id='All' onClick={this.allClients}/>
         <input type="button" value="Активные"  onClick={this.activeClients}/>
         <input type="button" value="Заблокированные"  onClick={this.blockedClients}/>
         <table className='Table'>

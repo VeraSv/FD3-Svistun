@@ -1,8 +1,10 @@
-.Active {
+td.Active 
+{
   background-color: chartreuse;
 }
 
-.Blocked {
+td.Blocked 
+{
   background-color: coral;
 }.Title{
   font-weight: 700;
