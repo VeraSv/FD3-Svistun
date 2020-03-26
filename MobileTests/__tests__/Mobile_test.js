@@ -6,23 +6,24 @@ import renderer from 'react-test-renderer';
 import Mobile from '../components/Mobile.js';
 
 test('работа Mobile', () => {
+ 
     const component = renderer.create(
-        <Mobile />
+        <Mobile  />
       );
 
       let componentTree=component.toJSON();
   expect(componentTree).toMatchSnapshot();
 
-  const buttonElem = component.root.find( el => el.id=='All' );
+  const buttonElem = component.root.find( '#All' );
   buttonElem.props.onClick();
 
-  const buttonElemActive = component.root.find( el => el.id=='Active' );
+  const buttonElemActive = component.root.find( '#Active' );
   buttonElemActive.props.onClick();
 
-  const buttonElemBlocked = component.root.find( el => el.id=='Blocked' );
+  const buttonElemBlocked = component.root.find('#Blocked' );
   buttonElemBlocked.props.onClick();
 
-  const buttonElemNewClient = component.root.find( el => el.id=='NewClient' );
+  const buttonElemNewClient = component.root.find( '#NewClient' );
   buttonElemNewClient.props.onClick();
 
   componentTree=component.toJSON();

@@ -108,7 +108,7 @@ addCard=(value)=>{
     console.log("MobileCompany render");
     var card=''
     if(this.state.edit==true) card=this.state.clientH.map(i=>
-      { return <EditClient  key={i.id} id={i.id} name={i.name} surname={i.surname} middleName={i.middleName} balance={i.balance}
+      { return <EditClient  key={i.id} client={i}
       />});
       if(this.state.add==true) {var x=Math.floor().random()*9+1; card=<AddClient id={x}/>}
       if(!this.state.list.length) this.state.list=this.state.clients

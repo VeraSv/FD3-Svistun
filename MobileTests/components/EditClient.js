@@ -5,19 +5,15 @@ import {events} from './events';
 class EditClient extends React.PureComponent{
 
   static propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    surname:PropTypes.string.isRequired,
-    middleName:PropTypes.string.isRequired,
-    balance: PropTypes.number.isRequired,
+    client: PropTypes.object
     } 
     
     state = {
-        name:this.props.name,
-        surname:this.props.surname,
-        middleName:this.props.middleName,
-        balance: this.props.balance,
-        newCard:{id:this.props.id, name:this.props.name, surname:this.props.surname,middleName:this.props.middleName, balance:this.props.balance},
+        name:this.props.client.name,
+        surname:this.props.client.surname,
+        middleName:this.props.client.middleName,
+        balance: this.props.client.balance,
+        newCard:{id:this.props.client.id, name:this.props.client.name, surname:this.props.client.surname,middleName:this.props.client.middleName, balance:this.props.client.balance},
     }
    
       newSurName=null;
@@ -75,9 +71,9 @@ events.emit('Cancel');
         events.emit('Cancel');
       }
        render(){
-        console.log("MobileClient id=Edit "+this.props.name+" render");
+        console.log("MobileClient id=Edit "+this.props.client.name+" render");
           return(   <div><h2>{'Редактирование'}</h2>
-         <table className='Card' id={this.props.id}>
+         <table className='Card' id={this.props.client.id}>
            <tbody>
            <tr><td>{'Фамилия: '}</td><td><input type={'text'} defaultValue={this.state.surname}  ref={this.setNewSurName}/></td></tr>
              <tr><td>{'Имя: '}</td><td><input type={'text'} defaultValue={this.state.name} ref={this.setNewName}/></td></tr>

@@ -13,10 +13,10 @@ test('работа AddClient', () => {
       let componentTree=component.toJSON();
   expect(componentTree).toMatchSnapshot();
 
-  const buttonSaveAddClient = component.root.find( el => el.id=='SaveAddClient' );
+  const buttonSaveAddClient = component.root.find('#SaveAddClient' );
   buttonSaveAddClient.props.onClick();
 
-  const buttonCancelAdd = component.root.find( el => el.id=='CancelAdd' );
+  const buttonCancelAdd = component.root.find('#CancelAdd' );
   buttonCancelAdd.props.onClick();
 
   componentTree=component.toJSON();

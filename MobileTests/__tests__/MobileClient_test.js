@@ -6,6 +6,8 @@ import renderer from 'react-test-renderer';
 import MobileClient from '../components/MobileClient.js';
 
 test('работа MobileClient', () => {
+  
+    
     const component = renderer.create(
         <MobileClient />
       );
@@ -13,10 +15,10 @@ test('работа MobileClient', () => {
       let componentTree=component.toJSON();
   expect(componentTree).toMatchSnapshot();
 
-  const buttonEdit = component.root.find( el => el.id=='Edit' );
+  const buttonEdit = component.root.find( '#Edit' );
   buttonEdit.props.onClick();
 
-  const buttonDelete = component.root.find( el => el.id=='Delete' );
+  const buttonDelete = component.root.find( '#Delete' );
   buttonDelete.props.onClick();
 
   componentTree=component.toJSON();
@@ -28,4 +30,6 @@ test('работа MobileClient', () => {
 
   componentTree=component.toJSON();
   expect(componentTree).toMatchSnapshot();
+
+    
 })
