@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа AddClient 1`] = `
+<div>
+  <h2>
+    Редактирование
+  </h2>
+  <table
+    className="Card"
+  >
+    <tbody>
+      <tr>
+        <td>
+          Фамилия: 
+        </td>
+        <td>
+          <input
+            defaultValue=""
+            type="text"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Имя: 
+        </td>
+        <td>
+          <input
+            defaultValue=""
+            type="text"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Отчество: 
+        </td>
+        <td>
+          <input
+            defaultValue=""
+            type="text"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Баланс: 
+        </td>
+        <td>
+          <input
+            defaultValue=""
+            type="text"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input
+    id="SaveAddClient"
+    onClick={[Function]}
+    type="button"
+    value="Save"
+  />
+  <input
+    id="CancelAdd"
+    onClick={[Function]}
+    type="button"
+    value="Cancel"
+  />
+</div>
+`;

@@ -38780,8 +38780,8 @@ var Mobile = function (_React$PureComponent) {
         ),
         _react2.default.createElement('br', null),
         _react2.default.createElement('input', { type: 'button', value: '\u0412\u0441\u0435', id: 'All', onClick: this.allClients }),
-        _react2.default.createElement('input', { type: 'button', value: '\u0410\u043A\u0442\u0438\u0432\u043D\u044B\u0435', onClick: this.activeClients }),
-        _react2.default.createElement('input', { type: 'button', value: '\u0417\u0430\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0435', onClick: this.blockedClients }),
+        _react2.default.createElement('input', { type: 'button', value: '\u0410\u043A\u0442\u0438\u0432\u043D\u044B\u0435', id: 'Active', onClick: this.activeClients }),
+        _react2.default.createElement('input', { type: 'button', value: '\u0417\u0430\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0435', id: 'Blocked', onClick: this.blockedClients }),
         _react2.default.createElement(
           'table',
           { className: 'Table' },
@@ -38835,7 +38835,7 @@ var Mobile = function (_React$PureComponent) {
             clients
           )
         ),
-        _react2.default.createElement('input', { type: 'button', value: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043A\u043B\u0438\u0435\u043D\u0442\u0430', onClick: this.addClient }),
+        _react2.default.createElement('input', { type: 'button', value: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043A\u043B\u0438\u0435\u043D\u0442\u0430', id: 'NewClient', onClick: this.addClient }),
         _react2.default.createElement(
           'div',
           null,
@@ -39831,13 +39831,13 @@ var MobileClient = function (_React$PureComponent) {
         _react2.default.createElement(
           'td',
           null,
-          _react2.default.createElement('input', { type: 'button', value: 'Редактировать', onClick: this.edit })
+          _react2.default.createElement('input', { type: 'button', value: 'Редактировать', id: 'Edit', onClick: this.edit })
         ),
         _react2.default.createElement(
           'td',
           null,
           ' ',
-          _react2.default.createElement('input', { type: 'button', value: 'Удалить', onClick: this.delete }),
+          _react2.default.createElement('input', { type: 'button', value: 'Удалить', id: 'Delete', onClick: this.delete }),
           ' '
         )
       );
@@ -40485,8 +40485,8 @@ var EditClient = function (_React$PureComponent) {
             )
           )
         ),
-        _react2.default.createElement('input', { type: 'button', value: 'Save', onClick: this.setNewText }),
-        _react2.default.createElement('input', { type: 'button', value: 'Cancel', onClick: this.cancel })
+        _react2.default.createElement('input', { type: 'button', value: 'Save', id: 'SaveEdit', onClick: this.setNewText }),
+        _react2.default.createElement('input', { type: 'button', value: 'Cancel', id: 'CancelEdit', onClick: this.cancel })
       );
     }
   }]);
@@ -40671,8 +40671,8 @@ var AddClient = function (_React$PureComponent) {
             )
           )
         ),
-        _react2.default.createElement('input', { type: 'button', value: 'Save', onClick: this.setNewText }),
-        _react2.default.createElement('input', { type: 'button', value: 'Cancel', onClick: this.cancel })
+        _react2.default.createElement('input', { type: 'button', value: 'Save', id: 'SaveAddClient', onClick: this.setNewText }),
+        _react2.default.createElement('input', { type: 'button', value: 'Cancel', id: 'CancelAdd', onClick: this.cancel })
       );
     }
   }]);
@@ -40680,7 +40680,7 @@ var AddClient = function (_React$PureComponent) {
   return AddClient;
 }(_react2.default.PureComponent);
 
-AddClient.PropTypes = {
+AddClient.propTypes = {
   id: _propTypes2.default.number
 };
 exports.default = AddClient;

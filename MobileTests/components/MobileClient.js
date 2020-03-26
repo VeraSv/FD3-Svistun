@@ -28,8 +28,8 @@ client: PropTypes.object
       <td>{this.props.client.balance}</td>
     <td className={(this.props.client.balance>0)?'Active':'Blocked'}>{(this.props.client.balance>0)?'Active':'Blocked'}</td>
         <td>
-        <input type={'button'} value={'Редактировать'} onClick={this.edit}/></td>
-        <td> <input type={'button'} value={'Удалить'}   onClick={this.delete}/> </td>
+        <input type={'button'} value={'Редактировать'} id='Edit' onClick={this.edit}/></td>
+        <td> <input type={'button'} value={'Удалить'}  id='Delete' onClick={this.delete}/> </td>
      </tr>
     );
 

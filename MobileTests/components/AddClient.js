@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {events} from './events';
 class AddClient extends React.PureComponent {
-   static PropTypes={
+   static propTypes={
        id:PropTypes.number
    }
   
@@ -77,8 +77,8 @@ events.emit('Cancel');
              <tr><td>{'Баланс: '}</td><td><input type={'text'} defaultValue=''  ref={this.setBalance}/></td></tr>
            </tbody>
          </table>
-         <input type={'button'} value={'Save'} onClick={this.setNewText} />
-         <input type={'button'} value={'Cancel'} onClick={this.cancel}/>
+         <input type={'button'} value={'Save'} id='SaveAddClient' onClick={this.setNewText} />
+         <input type={'button'} value={'Cancel'} id='CancelAdd' onClick={this.cancel}/>
          </div>)
         
        }

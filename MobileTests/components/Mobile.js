@@ -123,8 +123,8 @@ var clients=this.state.list.map(i=>
         <div className='MobileCompanyName'>Компания:{this.state.companyName}</div>
         <br></br>
         <input type="button" value="Все" id='All' onClick={this.allClients}/>
-        <input type="button" value="Активные"  onClick={this.activeClients}/>
-        <input type="button" value="Заблокированные"  onClick={this.blockedClients}/>
+        <input type="button" value="Активные" id='Active' onClick={this.activeClients}/>
+        <input type="button" value="Заблокированные" id='Blocked' onClick={this.blockedClients}/>
         <table className='Table'>
           <tbody>
           <tr  key='title' className='Title'>
@@ -145,7 +145,7 @@ var clients=this.state.list.map(i=>
           </tbody>
         </table>
         
-        <input type="button" value="Добавить клиента"  onClick={this.addClient}/>
+        <input type="button" value="Добавить клиента"  id='NewClient' onClick={this.addClient}/>
         <div>{card} </div>
       </div>
     )
