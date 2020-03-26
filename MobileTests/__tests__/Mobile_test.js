@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 
 import Mobile from '../components/Mobile.js';
 
-test('работа CounterButton', () => {
+test('работа Mobile', () => {
     const component = renderer.create(
         <Mobile />
       );

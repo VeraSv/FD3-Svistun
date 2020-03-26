@@ -9,7 +9,7 @@ import AddClient from './AddClient';
 
 class Mobile extends React.PureComponent {
   static propTypes = {
-    companyName:PropTypes.string.isRequired,
+    companyName:PropTypes.string,
     clients:PropTypes.arrayOf(
       PropTypes.shape({
         id:PropTypes.number.isRequired,
@@ -115,6 +115,7 @@ addCard=(value)=>{
 var clients=this.state.list.map(i=>
   { return <MobileClient key={i.id} client={i}
   />})
+ 
     return (
       <div className='MobileCompany'>
        

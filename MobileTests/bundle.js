@@ -38768,6 +38768,7 @@ var Mobile = function (_React$PureComponent) {
         return _react2.default.createElement(_MobileClient2.default, { key: i.id, client: i
         });
       });
+
       return _react2.default.createElement(
         'div',
         { className: 'MobileCompany' },
@@ -38849,7 +38850,7 @@ var Mobile = function (_React$PureComponent) {
 }(_react2.default.PureComponent);
 
 Mobile.propTypes = {
-  companyName: _propTypes2.default.string.isRequired,
+  companyName: _propTypes2.default.string,
   clients: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     id: _propTypes2.default.number.isRequired,
     name: _propTypes2.default.string.isRequired,
