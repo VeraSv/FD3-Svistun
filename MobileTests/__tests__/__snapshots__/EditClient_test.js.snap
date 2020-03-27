@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`работа AddClient 1`] = `
+exports[`работа EditClient 1`] = `
 <div>
   <h2>
     Редактирование
   </h2>
   <table
     className="Card"
+    id={1}
   >
     <tbody>
       <tr>
@@ -15,7 +16,7 @@ exports[`работа AddClient 1`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иванов"
             type="text"
           />
         </td>
@@ -26,7 +27,7 @@ exports[`работа AddClient 1`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иван"
             type="text"
           />
         </td>
@@ -37,7 +38,7 @@ exports[`работа AddClient 1`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иванович"
             type="text"
           />
         </td>
@@ -48,7 +49,7 @@ exports[`работа AddClient 1`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue={200}
             type="text"
           />
         </td>
@@ -56,13 +57,13 @@ exports[`работа AddClient 1`] = `
     </tbody>
   </table>
   <input
-    className="SaveAddClient"
+    className="SaveEdit"
     onClick={[Function]}
     type="button"
     value="Save"
   />
   <input
-    className="CancelAdd"
+    className="CancelEdit"
     onClick={[Function]}
     type="button"
     value="Cancel"
@@ -70,13 +71,14 @@ exports[`работа AddClient 1`] = `
 </div>
 `;
 
-exports[`работа AddClient 2`] = `
+exports[`работа EditClient 2`] = `
 <div>
   <h2>
     Редактирование
   </h2>
   <table
     className="Card"
+    id={1}
   >
     <tbody>
       <tr>
@@ -85,7 +87,7 @@ exports[`работа AddClient 2`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иванов"
             type="text"
           />
         </td>
@@ -96,7 +98,7 @@ exports[`работа AddClient 2`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иван"
             type="text"
           />
         </td>
@@ -107,7 +109,7 @@ exports[`работа AddClient 2`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иванович"
             type="text"
           />
         </td>
@@ -118,7 +120,7 @@ exports[`работа AddClient 2`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue={200}
             type="text"
           />
         </td>
@@ -126,13 +128,13 @@ exports[`работа AddClient 2`] = `
     </tbody>
   </table>
   <input
-    className="SaveAddClient"
+    className="SaveEdit"
     onClick={[Function]}
     type="button"
     value="Save"
   />
   <input
-    className="CancelAdd"
+    className="CancelEdit"
     onClick={[Function]}
     type="button"
     value="Cancel"
@@ -140,13 +142,14 @@ exports[`работа AddClient 2`] = `
 </div>
 `;
 
-exports[`работа AddClient 3`] = `
+exports[`работа EditClient 3`] = `
 <div>
   <h2>
     Редактирование
   </h2>
   <table
     className="Card"
+    id={1}
   >
     <tbody>
       <tr>
@@ -155,7 +158,7 @@ exports[`работа AddClient 3`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иванов"
             type="text"
           />
         </td>
@@ -166,7 +169,7 @@ exports[`работа AddClient 3`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иван"
             type="text"
           />
         </td>
@@ -177,7 +180,7 @@ exports[`работа AddClient 3`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue="Иванович"
             type="text"
           />
         </td>
@@ -188,7 +191,7 @@ exports[`работа AddClient 3`] = `
         </td>
         <td>
           <input
-            defaultValue=""
+            defaultValue={200}
             type="text"
           />
         </td>
@@ -196,13 +199,13 @@ exports[`работа AddClient 3`] = `
     </tbody>
   </table>
   <input
-    className="SaveAddClient"
+    className="SaveEdit"
     onClick={[Function]}
     type="button"
     value="Save"
   />
   <input
-    className="CancelAdd"
+    className="CancelEdit"
     onClick={[Function]}
     type="button"
     value="Cancel"

@@ -6,24 +6,24 @@ import renderer from 'react-test-renderer';
 import EditClient from '../components/EditClient.js';
 
 test('работа EditClient', () => {
- 
+  let client= {id:1,name:'Иван', surname:'Иванов', middleName:'Иванович', balance:200}
+
     const component = renderer.create(
-        <EditClient />
+        <EditClient client={client} />
       );
 
       let componentTree=component.toJSON();
   expect(componentTree).toMatchSnapshot();
 
-  const buttonSaveEdit = component.root.find( '#SaveEdit' );
-  buttonSaveEdit.props.onClick();
+ 
 
-  const buttonCancelEdit = component.root.find( '#CancelEdit' );
+  const buttonCancelEdit = component.root.find((el) =>
+  el.type == 'input' && el.props.className == 'CancelEdit');
   buttonCancelEdit.props.onClick();
 
   componentTree=component.toJSON();
   expect(componentTree).toMatchSnapshot();
 
-  buttonSaveEdit.props.onClick();
   buttonCancelEdit.props.onClick();
  
 

@@ -77,8 +77,8 @@ events.emit('Cancel');
              <tr><td>{'Баланс: '}</td><td><input type={'text'} defaultValue=''  ref={this.setBalance}/></td></tr>
            </tbody>
          </table>
-         <input type={'button'} value={'Save'} id='SaveAddClient' onClick={this.setNewText} />
-         <input type={'button'} value={'Cancel'} id='CancelAdd' onClick={this.cancel}/>
+         <input type={'button'} value={'Save'} className='SaveAddClient' onClick={this.setNewText} />
+         <input type={'button'} value={'Cancel'} className='CancelAdd' onClick={this.cancel}/>
          </div>)
         
        }

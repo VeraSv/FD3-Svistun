@@ -1,0 +1,457 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Mobile 1`] = `
+<div
+  className="MobileCompany"
+>
+  <div
+    className="MobileCompanyName"
+  >
+    Компания:
+    Velcom
+  </div>
+  <br />
+  <input
+    className="All"
+    onClick={[Function]}
+    type="button"
+    value="Все"
+  />
+  <input
+    className="Active"
+    onClick={[Function]}
+    type="button"
+    value="Активные"
+  />
+  <input
+    className="Blocked"
+    onClick={[Function]}
+    type="button"
+    value="Заблокированные"
+  />
+  <table
+    className="Table"
+  >
+    <tbody>
+      <tr
+        className="Title"
+      >
+        <td>
+           
+          Фамилия
+        </td>
+        <td>
+          Имя
+        </td>
+        <td>
+          Отчество
+        </td>
+        <td>
+          Баланс
+           
+        </td>
+        <td>
+          Статус
+           
+        </td>
+        <td>
+          Редактировать
+           
+        </td>
+        <td>
+          Удалить
+           
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Иванов
+        </td>
+        <td>
+          Иван
+        </td>
+        <td>
+          Иванович
+        </td>
+        <td>
+          200
+        </td>
+        <td
+          className="Active"
+        >
+          Active
+        </td>
+        <td>
+          <input
+            className="Edit"
+            onClick={[Function]}
+            type="button"
+            value="Редактировать"
+          />
+        </td>
+        <td>
+           
+          <input
+            className="Delete"
+            onClick={[Function]}
+            type="button"
+            value="Удалить"
+          />
+           
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Сидоров
+        </td>
+        <td>
+          Сидор
+        </td>
+        <td>
+          Сидорович
+        </td>
+        <td>
+          250
+        </td>
+        <td
+          className="Active"
+        >
+          Active
+        </td>
+        <td>
+          <input
+            className="Edit"
+            onClick={[Function]}
+            type="button"
+            value="Редактировать"
+          />
+        </td>
+        <td>
+           
+          <input
+            className="Delete"
+            onClick={[Function]}
+            type="button"
+            value="Удалить"
+          />
+           
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Петров
+        </td>
+        <td>
+          Петр
+        </td>
+        <td>
+          Петрович
+        </td>
+        <td>
+          180
+        </td>
+        <td
+          className="Active"
+        >
+          Active
+        </td>
+        <td>
+          <input
+            className="Edit"
+            onClick={[Function]}
+            type="button"
+            value="Редактировать"
+          />
+        </td>
+        <td>
+           
+          <input
+            className="Delete"
+            onClick={[Function]}
+            type="button"
+            value="Удалить"
+          />
+           
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Григорьев
+        </td>
+        <td>
+          Григорий
+        </td>
+        <td>
+          Григорьевич
+        </td>
+        <td>
+          -220
+        </td>
+        <td
+          className="Blocked"
+        >
+          Blocked
+        </td>
+        <td>
+          <input
+            className="Edit"
+            onClick={[Function]}
+            type="button"
+            value="Редактировать"
+          />
+        </td>
+        <td>
+           
+          <input
+            className="Delete"
+            onClick={[Function]}
+            type="button"
+            value="Удалить"
+          />
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input
+    className="NewClient"
+    onClick={[Function]}
+    type="button"
+    value="Добавить клиента"
+  />
+  <div>
+    
+     
+  </div>
+</div>
+`;
+
+exports[`работа Mobile 2`] = `
+<div
+  className="MobileCompany"
+>
+  <div
+    className="MobileCompanyName"
+  >
+    Компания:
+    Velcom
+  </div>
+  <br />
+  <input
+    className="All"
+    onClick={[Function]}
+    type="button"
+    value="Все"
+  />
+  <input
+    className="Active"
+    onClick={[Function]}
+    type="button"
+    value="Активные"
+  />
+  <input
+    className="Blocked"
+    onClick={[Function]}
+    type="button"
+    value="Заблокированные"
+  />
+  <table
+    className="Table"
+  >
+    <tbody>
+      <tr
+        className="Title"
+      >
+        <td>
+           
+          Фамилия
+        </td>
+        <td>
+          Имя
+        </td>
+        <td>
+          Отчество
+        </td>
+        <td>
+          Баланс
+           
+        </td>
+        <td>
+          Статус
+           
+        </td>
+        <td>
+          Редактировать
+           
+        </td>
+        <td>
+          Удалить
+           
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Григорьев
+        </td>
+        <td>
+          Григорий
+        </td>
+        <td>
+          Григорьевич
+        </td>
+        <td>
+          -220
+        </td>
+        <td
+          className="Blocked"
+        >
+          Blocked
+        </td>
+        <td>
+          <input
+            className="Edit"
+            onClick={[Function]}
+            type="button"
+            value="Редактировать"
+          />
+        </td>
+        <td>
+           
+          <input
+            className="Delete"
+            onClick={[Function]}
+            type="button"
+            value="Удалить"
+          />
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input
+    className="NewClient"
+    onClick={[Function]}
+    type="button"
+    value="Добавить клиента"
+  />
+  <div>
+    
+     
+  </div>
+</div>
+`;
+
+exports[`работа Mobile 3`] = `
+<div
+  className="MobileCompany"
+>
+  <div
+    className="MobileCompanyName"
+  >
+    Компания:
+    Velcom
+  </div>
+  <br />
+  <input
+    className="All"
+    onClick={[Function]}
+    type="button"
+    value="Все"
+  />
+  <input
+    className="Active"
+    onClick={[Function]}
+    type="button"
+    value="Активные"
+  />
+  <input
+    className="Blocked"
+    onClick={[Function]}
+    type="button"
+    value="Заблокированные"
+  />
+  <table
+    className="Table"
+  >
+    <tbody>
+      <tr
+        className="Title"
+      >
+        <td>
+           
+          Фамилия
+        </td>
+        <td>
+          Имя
+        </td>
+        <td>
+          Отчество
+        </td>
+        <td>
+          Баланс
+           
+        </td>
+        <td>
+          Статус
+           
+        </td>
+        <td>
+          Редактировать
+           
+        </td>
+        <td>
+          Удалить
+           
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Григорьев
+        </td>
+        <td>
+          Григорий
+        </td>
+        <td>
+          Григорьевич
+        </td>
+        <td>
+          -220
+        </td>
+        <td
+          className="Blocked"
+        >
+          Blocked
+        </td>
+        <td>
+          <input
+            className="Edit"
+            onClick={[Function]}
+            type="button"
+            value="Редактировать"
+          />
+        </td>
+        <td>
+           
+          <input
+            className="Delete"
+            onClick={[Function]}
+            type="button"
+            value="Удалить"
+          />
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input
+    className="NewClient"
+    onClick={[Function]}
+    type="button"
+    value="Добавить клиента"
+  />
+  <div>
+    
+     
+  </div>
+</div>
+`;

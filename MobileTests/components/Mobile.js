@@ -98,12 +98,13 @@ deleteClient=(client)=>{
 addClient=()=>{
 this.setState({add:true})
 }
-addCard=(value)=>{
+ addCard=(value)=>{
   let newClients=[...this.state.clients,value]; 
  
     this.setState({clients:newClients,list:newClients})
 
 }
+
   render() {
     console.log("MobileCompany render");
     var card=''
@@ -122,9 +123,9 @@ var clients=this.state.list.map(i=>
       
         <div className='MobileCompanyName'>Компания:{this.state.companyName}</div>
         <br></br>
-        <input type="button" value="Все" id='All' onClick={this.allClients}/>
-        <input type="button" value="Активные" id='Active' onClick={this.activeClients}/>
-        <input type="button" value="Заблокированные" id='Blocked' onClick={this.blockedClients}/>
+        <input type="button" value="Все" className='All' onClick={this.allClients}/>
+        <input type="button" value="Активные" className='Active' onClick={this.activeClients}/>
+        <input type="button" value="Заблокированные" className='Blocked' onClick={this.blockedClients}/>
         <table className='Table'>
           <tbody>
           <tr  key='title' className='Title'>
@@ -145,7 +146,7 @@ var clients=this.state.list.map(i=>
           </tbody>
         </table>
         
-        <input type="button" value="Добавить клиента"  id='NewClient' onClick={this.addClient}/>
+        <input type="button" value="Добавить клиента"  className='NewClient' onClick={this.addClient}/>
         <div>{card} </div>
       </div>
     )
