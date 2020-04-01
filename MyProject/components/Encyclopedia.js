@@ -1,104 +1,43 @@
 ﻿import React from 'react';
 import PropTypes from 'prop-types';
-
+import {connect} from 'react-redux';
 import Page from './Page'
+import { pagesLoadingAC, pagesErrorAC, pagesSetAC } from "../redux/pagesAC";
 class Encyclopedia extends React.PureComponent {
 
   static propTypes = {
+    info: PropTypes.object.isRequired,
+  };
+
    
-  };
-  state = {
-    list:[],
-    listA:[],
-    listB:[],
-    listV:[]
-  };
-  info;
-  updatePassword;
-  componentDidMount() {
-  
-  
-     this.load()
-    // if(this.info) this.storeInfo();
-  }
-  load= () => {
-  /*isoFetch('http://localhost:3000/example')
-              .then(response => {
-                  if (!response.ok)
-                      throw new Error("fetch error " + response.status);
-                  else
-                      return response.json();
-              })
-              .then( data => {
-                  console.log(data)
-              })
-              .catch( error => {
-                  
-              })
-            }
-  storeInfo=()=> {
-   /*
-      this.updatePassword=Math.random();
-      $.ajax( {
-              url :'https://fe.it-academy.by/AjaxStringStorage2.php', type : 'POST', cache : false, dataType:'json',
-              data : { f : 'LOCKGET', n : 'Svistun_Test', p :  this.updatePassword },
-              success : this.lockGetReady, error : this.errorHandler
-          }
-      );
-  }
-  
-  lockGetReady=(callresult) =>{
-      if ( callresult.error!=undefined )
-          alert(callresult.error);
-      else {
-         
-          $.ajax( {
-                  url : 'https://fe.it-academy.by/AjaxStringStorage2.php', type : 'POST', cache : false, dataType:'json',
-                  data : { f : 'UPDATE', n :  'Svistun_Test', v :this.info, p :  this.updatePassword },
-                  success : this.updateReady, error : this.errorHandler
-              }
-          );
-      }*/
-  }
-  
-   updateReady=(callresult)=> {
-      if ( callresult.error!=undefined )
-          alert(callresult.error);
-  }
-  
-   restoreInfo=() =>{
-      $.ajax(
-          {
-              url : 'https://fe.it-academy.by/AjaxStringStorage2.php', type : 'POST', cache : false, dataType:'json',
-              data : { f : 'READ', n :  'Svistun_Test' },
-              success : this.readReady, error : this.errorHandler
-          }
-      );
-  }
-  
-  readReady=(callresult)=> {
-      if ( callresult.error!=undefined )
-          alert(callresult.error);
-      else if ( callresult.result!="" ) {
-          var info=JSON.parse(callresult.result);
-          
-      }
-  }
-  
-  errorHandler=(jqXHR,statusStr,errorStr)=> {
-      alert(statusStr+' '+errorStr);
-  }
-  
-  loadData=(data)=>{
-    console.log(data)
-    this.setState({list:data})
-    this.info=data;
-  }
-  
+   componentDidMount() {
+    this.props.dispatch( pagesLoadingAC() );
+  var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
 
   
+  let sp = new URLSearchParams();
+  sp.append('f', 'READ');
+  sp.append('n', 'Svistun_Test');
+
+  fetch(ajaxHandlerScript, { method: 'post', body: sp })
+      .then( response => response.json() )
+      .then( data => {  this.props.dispatch( pagesSetAC(data) )} )
+      .catch( error => { console.error(error); this.props.dispatch( pagesErrorAC() )} );
+
+ }
   render() {
+    
+    if ( this.props.info.status<=1 )
+      return "загрузка...";
 
+    if ( this.props.info.status===2 )
+      return "ошибка загрузки данных";
+    
+   
+     var elemA =this.props.info.data.pageA.map(i=>{return <li>{i.name}</li>})
+     var elemB =this.props.info.data.pageB.map(i=>{return <li>{i.name}</li>})
+     var elemV =this.props.info.data.pageV.map(i=>{return <li>{i.name}</li>})
+    
     return (
       <div className="Component">
       
@@ -108,7 +47,22 @@ class Encyclopedia extends React.PureComponent {
 
       </div>
       <div className='Description'>
-{'zdrhze'}
+
+        <span className='Point'><b>{'A'}</b></span><br />
+       <ul>
+         {elemA}
+       </ul>
+       
+       <span className='Point'><b>{'Б'}</b></span><br />
+       <ul>
+         {elemB}
+       </ul>
+       
+       <span className='Point'><b>{'В'}</b></span><br />
+       <ul>
+         {elemV}
+       </ul>
+
 </div>
     </div>
     )
@@ -118,60 +72,10 @@ class Encyclopedia extends React.PureComponent {
 
 }
 
-export default Encyclopedia;
-/*
-  state = {
-    list:[],
-    listA:[],
-    listB:[],
-    listV:[]
+const mapStateToProps = function (state) {
+  return {
+    info: state.info,
   };
-  errorHandler=(jqXHR,statusStr,errorStr)=> {
-    alert(statusStr+' '+errorStr);
-  }
-  loadData=(data)=>{
-    this.setState({list:data})
-  }
-  componentDidMount() {
-    var list=require('./example.json');
-  
-    function f(a,i) {
-    
-    var el=<span key={i.id}>{i.name}<br /></span>
-     var  newlist=[...a,el];
-     return newlist
-      };
-     var listA= list.pageA.reduce(f,this.state.listA)
-      this.setState({listA:listA})
+};
 
-      var listB= list.pageB.reduce(f,this.state.listB)
-      this.setState({listB:listB})
-
-      var listV= list.pageV.reduce(f,this.state.listV)
-      this.setState({listV:listV})
-
-   // $.ajax('example.json', { type:'GET', dataType:'json', success:this.loadData, error:this.errorHandler });
-  }
-  render() {
-    
-return (
- 
-      <div className="SExampleComponent">
-        <h1>{this.props.name}</h1>
-        <div className='List'>
-          <ul>
-<li>{'A'}</li>
-<li>{'Б'}</li>
-<li>{'В'}</li>
-          </ul>
-        </div>
-        <div className='Description'>
-<div> <span><b>{'A'}</b></span><br /><br />{ this.state.listA}<br /></div>
-<div> <span><b>{'Б'}</b></span><br /><br />{ this.state.listB}<br /></div>
-<div> <span><b>{'B'}</b></span><br /><br />{ this.state.listV}<br /></div>
-</div>
-      </div>
-    )
-    ;
-
-  }*/
+export default connect(mapStateToProps)(Encyclopedia);

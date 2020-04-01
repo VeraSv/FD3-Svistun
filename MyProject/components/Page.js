@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import './Encyclopedia.css'
 class Page extends React.PureComponent {
 
   static propTypes = {
@@ -10,11 +11,11 @@ class Page extends React.PureComponent {
   render() {
 
     return (
-        <div className='MobileClient'>
+        <div className='Nav'>
         
-        <NavLink to={"/page/"+'A'} className="MobileClientFIO">{'A'}</NavLink>
-        <NavLink to={"/page/"+'Б'} className="MobileClientFIO">{'Б'}</NavLink>
-        <NavLink to={"/page/"+'В'} className="MobileClientFIO">{'В'}</NavLink>
+        <NavLink to={"/page/"+'A'} className="ElemList">{'A'}</NavLink>
+        <NavLink to={"/page/"+'Б'} className="ElemList">{'Б'}</NavLink>
+        <NavLink to={"/page/"+'В'} className="ElemList">{'В'}</NavLink>
       </div>
     )
     ;

@@ -1,7 +1,7 @@
 {
-  "name": "mobile",
+  "name": "encyclopedia",
   "version": "1.0.0",
-  "description": "мобильная компания",
+  "description": "справочник",
   "main": "App.js",
   "scripts": {
     "build": ".\\node_modules\\.bin\\webpack",
@@ -27,6 +27,8 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   }
 }
