@@ -34,16 +34,18 @@ class Encyclopedia extends React.PureComponent {
       return "ошибка загрузки данных";
     
    
-     var elemA =this.props.info.data.pageA.map(i=>{return <li>{i.name}</li>})
-     var elemB =this.props.info.data.pageB.map(i=>{return <li>{i.name}</li>})
-     var elemV =this.props.info.data.pageV.map(i=>{return <li>{i.name}</li>})
+     var elemA =this.props.info.data.pageA.map(i=>{return <li key={i.id}>{i.name}</li>})
+     var elemB =this.props.info.data.pageB.map(i=>{return <li key={i.id}>{i.name}</li>})
+     var elemV =this.props.info.data.pageV.map(i=>{return <li key={i.id}>{i.name}</li>})
     
     return (
       <div className="Component">
       
       <div className='List'>
         
- {<Page />} 
+ {<Page point={'A'}/>}
+{ <Page point={'Б'}/>}
+ {<Page point={'В'}/>} 
 
       </div>
       <div className='Description'>

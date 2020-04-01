@@ -5,7 +5,7 @@ import './Encyclopedia.css'
 class Page extends React.PureComponent {
 
   static propTypes = {
-    
+    point:PropTypes.string
   };
 
   render() {
@@ -13,9 +13,8 @@ class Page extends React.PureComponent {
     return (
         <div className='Nav'>
         
-        <NavLink to={"/page/"+'A'} className="ElemList">{'A'}</NavLink>
-        <NavLink to={"/page/"+'Б'} className="ElemList">{'Б'}</NavLink>
-        <NavLink to={"/page/"+'В'} className="ElemList">{'В'}</NavLink>
+    <NavLink to={"/page/"+this.props.point} className="ElemList" >{this.props.point}</NavLink>
+       
       </div>
     )
     ;
