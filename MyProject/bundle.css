@@ -1,0 +1,10 @@
+.PageLink {
+    color: black;
+    margin-right: 10px;
+}
+
+.ActivePageLink {
+    font-weight: bold;
+}
+
+/*# sourceMappingURL=bundle.css.map*/
