@@ -1,9 +1,3 @@
-
-
-.Nav {
-  margin:15px;
-  display:inline-block;
-}
 .Table {
     margin-top: 15px;
 }
@@ -28,13 +22,4 @@ width: 208px;
 
 .Description {
     width: 550px;
-}.PageLink {
-    color: black;
-    margin-right: 10px;
 }
-
-.ActivePageLink {
-    font-weight: bold;
-}
-
-/*# sourceMappingURL=bundle.css.map*/
