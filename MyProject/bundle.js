@@ -27349,6 +27349,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -27372,8 +27374,6 @@ __webpack_require__(140);
 var _pagesAC = __webpack_require__(29);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -27410,16 +27410,35 @@ var PageInfo = function (_React$PureComponent) {
       _this.setState({ cardState: state, cardEdit: id });
     }, _this.cancel = function (state) {
       _this.setState({ cardState: state });
+    }, _this.updateReady = function (callresult) {
+      if (callresult.error != undefined) alert(callresult.error);
+    }, _this.errorHandler = function (jqXHR, statusStr, errorStr) {
+      alert(statusStr + ' ' + errorStr);
     }, _this.saveCard = function (newCard) {
       var changed = false;
-      var newInfo = [].concat(_toConsumableArray(_this.props.info));
-      newInfo.forEach(function (c, i) {
+      var dataH = { result: '' };
+      dataH.result = _extends({}, _this.props.info.data);
+
+      dataH.result.pageA.forEach(function (c, j) {
         if (c.id == newCard.id) {
-          newInfo[i] = newCard;
+          dataH.result.pageA[j] = newCard;
           changed = true;
         }
       });
-      if (changed) _this.setState({ info: newInfo });
+
+      if (changed) {
+        var info = JSON.stringify(dataH.result);
+        dataH.result = info;
+        _this.props.dispatch((0, _pagesAC.pagesSetAC)(dataH));
+        var updatePassword = Math.random();
+
+        $.ajax({
+          url: "https://fe.it-academy.by/AjaxStringStorage2.php", type: 'POST', cache: false, dataType: 'json',
+          data: { f: 'UPDATE', n: 'Svistun_Test', v: info, p: updatePassword },
+          success: _this.updateReady, error: _this.errorHandler
+        });
+      }
+      // this.setState({cardState:state})
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 

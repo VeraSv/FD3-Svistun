@@ -52,17 +52,43 @@ class PageInfo extends React.PureComponent {
  cancel=(state)=>{
 this.setState({cardState:state})
  }
+
+ updateReady=(callresult) =>{
+  if ( callresult.error!=undefined )
+  alert(callresult.error);
+}
+
+errorHandler=(jqXHR,statusStr,errorStr) =>{
+  alert(statusStr+' '+errorStr);
+}
+
+
  saveCard=(newCard)=>{
   let changed=false;
-  let newInfo=[...this.props.info]; 
-  newInfo.forEach( (c,i) => {
-    if ( c.id==newCard.id) {
-      newInfo[i]=newCard
-      changed=true;
-    }
-  } );
-  if ( changed )
-    this.setState({info:newInfo});
+  let dataH={result:''};
+  dataH.result={...this.props.info.data}; 
+ 
+  dataH.result.pageA.forEach( (c,j) => {
+      if ( c.id==newCard.id) {
+        dataH.result.pageA[j]=newCard
+        changed=true;
+      }
+    } );
+  
+  
+  if ( changed ){
+    let info=JSON.stringify(dataH.result);
+   dataH.result=info
+    this.props.dispatch( pagesSetAC(dataH) )
+ var updatePassword=Math.random();
+
+  $.ajax( {
+    url : "https://fe.it-academy.by/AjaxStringStorage2.php", type : 'POST', cache : false, dataType:'json',
+    data : { f : 'UPDATE', n : 'Svistun_Test', v : info, p : updatePassword },
+    success : this.updateReady, error : this.errorHandler
+    })
+  }
+ // this.setState({cardState:state})
  }
   render() {
   
