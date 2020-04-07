@@ -4,7 +4,24 @@
   margin:15px;
   display:inline-block;
 }
-.Table {
+.NewCard, td {
+    border: solid 1px black;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    height: 30px;
+}
+
+.NewText {
+    font-style: italic;
+box-sizing: border-box;
+height: 130px;
+width: 308px;
+}
+
+.Valid {
+    display: block;
+    color: red;
+}.Table {
     margin-top: 15px;
 }
 .Table, td {
@@ -22,12 +39,17 @@
 .Edit {
 font-style: italic;
 box-sizing: border-box;
-height: 50px;
+height: 130px;
 width: 208px;
 }
 
 .Description {
     width: 550px;
+}
+
+.Valid {
+    display: block;
+    color: red;
 }.PageLink {
     color: black;
     margin-right: 10px;
