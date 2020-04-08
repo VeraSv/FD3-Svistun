@@ -21,6 +21,10 @@ width: 308px;
 .Valid {
     display: block;
     color: red;
+}
+
+.ValText {
+    border: solid 1px white;
 }.Table {
     margin-top: 15px;
 }
@@ -50,6 +54,10 @@ width: 208px;
 .Valid {
     display: block;
     color: red;
+}
+
+.ValText {
+    border: solid 1px white;
 }.PageLink {
     color: black;
     margin-right: 10px;

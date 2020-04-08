@@ -36,17 +36,17 @@ class Product {
    name:string;
 
    constructor(_weight:number,_name:string){
-this.weight=_weight;
-this.name=_name;
+     this.weight=_weight;
+     this.name=_name;
    }
 
-getScale():number{
-return this.weight
-}
+  getScale():number{
+     return this.weight
+    }
 
-getName():string {
-    return this.name
-}
+   getName():string {
+      return this.name
+    }
 }
 
 class Apple extends Product {
@@ -88,8 +88,6 @@ let apple1:Apple=new Apple(150,'red apple')
 let apple2:Apple=new Apple(50,'apple2')
 let tomato1:Tomato=new Tomato(300,'tomato1')
 let tomato2:Tomato=new Tomato(100,'cherry')
-
-
 
 scales.add(apple1);
 scales.add(tomato1);

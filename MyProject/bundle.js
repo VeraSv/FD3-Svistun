@@ -27724,13 +27724,13 @@ var PageInfo = function (_React$PureComponent) {
       _events.events.emit('DeleteClicked', _this.props.info.id, _this.props.page);
     }, _this.validName = function (EO) {
       if (!EO.target.value) {
-        _this.setState({ validName: 'Пожалуйста, введите значение' });
+        _this.setState({ validName: 'Пожалуйста, введите название' });
       } else {
         _this.setState({ validName: '' });
       }
     }, _this.validDescr = function (EO) {
       if (!EO.target.value) {
-        _this.setState({ validDescr: 'Пожалуйста, введите значение' });
+        _this.setState({ validDescr: 'Пожалуйста, введите описание' });
       } else {
         _this.setState({ validDescr: '' });
       }
@@ -27766,28 +27766,32 @@ var PageInfo = function (_React$PureComponent) {
         _react2.default.createElement(
           'td',
           null,
-          _react2.default.createElement('input', { className: 'Edit', type: 'text', defaultValue: this.state.info.name, ref: this.setName, onBlur: this.validName }),
-          _react2.default.createElement(
-            'span',
-            { className: 'Valid' },
-            this.state.validName
-          )
+          _react2.default.createElement('input', { className: 'Edit', type: 'text', defaultValue: this.state.info.name, ref: this.setName, onBlur: this.validName })
         ),
         _react2.default.createElement(
           'td',
           { className: 'Description' },
-          _react2.default.createElement('textarea', { className: 'Edit Description', defaultValue: this.state.info.description, ref: this.setDescription, onBlur: this.validDescr }),
-          _react2.default.createElement(
-            'span',
-            { className: 'Valid' },
-            this.state.validDescr
-          )
+          _react2.default.createElement('textarea', { className: 'Edit Description', defaultValue: this.state.info.description, ref: this.setDescription, onBlur: this.validDescr })
         ),
         _react2.default.createElement(
           'td',
           null,
           _react2.default.createElement('input', { type: 'button', value: 'Save', style: { background: 'green' }, onClick: this.setNewText }),
           _react2.default.createElement('input', { type: 'button', value: 'Cancel', style: { background: 'red' }, onClick: this.cancel })
+        ),
+        _react2.default.createElement(
+          'td',
+          { className: 'ValText' },
+          _react2.default.createElement(
+            'span',
+            { className: 'Valid' },
+            this.state.validName
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'Valid' },
+            this.state.validDescr
+          )
         )
       );
     }
@@ -28231,7 +28235,11 @@ var AddCard = function (_React$PureComponent) {
               _react2.default.createElement(
                 'td',
                 { className: 'NewText' },
-                _react2.default.createElement('input', { className: 'NewText', type: 'text', defaultValue: '', ref: this.setNewName, onBlur: this.validName }),
+                _react2.default.createElement('input', { className: 'NewText', type: 'text', defaultValue: '', ref: this.setNewName, onBlur: this.validName })
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'ValText' },
                 _react2.default.createElement(
                   'span',
                   { className: 'Valid' },
@@ -28250,13 +28258,18 @@ var AddCard = function (_React$PureComponent) {
               _react2.default.createElement(
                 'td',
                 { className: 'NewText' },
-                _react2.default.createElement('textarea', { className: 'NewText', defaultValue: '', ref: this.setNewDescription, onBlur: this.validDescr }),
+                _react2.default.createElement('textarea', { className: 'NewText', defaultValue: '', ref: this.setNewDescription, onBlur: this.validDescr })
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'ValText' },
                 _react2.default.createElement(
                   'span',
                   { className: 'Valid' },
                   this.state.validDescr
                 )
-              )
+              ),
+              ' '
             )
           )
         ),

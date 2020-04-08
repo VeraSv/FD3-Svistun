@@ -16,3 +16,7 @@ width: 308px;
     display: block;
     color: red;
 }
+
+.ValText {
+    border: solid 1px white;
+}

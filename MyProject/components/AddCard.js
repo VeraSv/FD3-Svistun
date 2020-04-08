@@ -76,8 +76,8 @@ events.emit('CancelAdd');
           return(   <div><h2>{'Добавить позицию'}</h2>
          <table className='NewCard' >
            <tbody>
-           <tr><td>{'Название: '}</td><td  className={'NewText'}><input className={'NewText'} type={'text'} defaultValue='' ref={this.setNewName} onBlur={this.validName}/><span className='Valid'>{this.state.validName}</span></td></tr>
-             <tr><td>{'Описание: '}</td><td  className={'NewText'}><textarea  className={'NewText'}  defaultValue='' ref={this.setNewDescription} onBlur={this.validDescr}/><span className='Valid'>{this.state.validDescr}</span></td></tr>
+           <tr><td>{'Название: '}</td><td  className={'NewText'}><input className={'NewText'} type={'text'} defaultValue='' ref={this.setNewName} onBlur={this.validName}/></td ><td className='ValText'><span className='Valid'>{this.state.validName}</span></td></tr>
+             <tr><td>{'Описание: '}</td><td  className={'NewText'}><textarea  className={'NewText'}  defaultValue='' ref={this.setNewDescription} onBlur={this.validDescr}/></td><td className='ValText'><span className='Valid'>{this.state.validDescr}</span></td> </tr>
              
            </tbody>
          </table>

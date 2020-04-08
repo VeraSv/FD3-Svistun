@@ -58,7 +58,7 @@ events.emit('Cancel',1);
 
     validName=(EO)=>{
       if(!EO.target.value) {
-        this.setState({validName:'Пожалуйста, введите значение'});
+        this.setState({validName:'Пожалуйста, введите название'});
        } else {
            this.setState({validName:''});
        }
@@ -66,7 +66,7 @@ events.emit('Cancel',1);
 
     validDescr=(EO)=>{
       if(!EO.target.value) {
-        this.setState({validDescr:'Пожалуйста, введите значение'});
+        this.setState({validDescr:'Пожалуйста, введите описание'});
        } else {
            this.setState({validDescr:''});
        }
@@ -92,14 +92,15 @@ events.emit('Cancel',1);
      return (
       <tr  key={this.props.info.id} id={this.props.info.id} > 
        
-      <td><input  className={'Edit'} type={'text'} defaultValue={this.state.info.name} ref={this.setName} onBlur={this.validName}></input><span className={'Valid'}>{this.state.validName}</span></td> 
-      <td className='Description'><textarea  className={'Edit Description'}  defaultValue={this.state.info.description} ref={this.setDescription} onBlur={this.validDescr}></textarea><span className={'Valid'}>{this.state.validDescr}</span></td>
+      <td><input  className={'Edit'} type={'text'} defaultValue={this.state.info.name} ref={this.setName} onBlur={this.validName}></input></td> 
+      <td className='Description'><textarea  className={'Edit Description'}  defaultValue={this.state.info.description} ref={this.setDescription} onBlur={this.validDescr}></textarea></td>
       
         <td>
         <input type={'button'} value={'Save'} style={{background:'green'}} onClick={this.setNewText}/>
      <input type={'button'} value={'Cancel'}  style={{background:'red'}} onClick={this.cancel}/>
      
      </td>
+     <td className='ValText'><span className={'Valid'}>{this.state.validName}</span><span className={'Valid'}>{this.state.validDescr}</span></td>
       </tr>
     )
     ;
