@@ -12,19 +12,20 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var Scales = /** @class */ (function () {
+    //sumWeight:number;
     function Scales() {
         this.scalesH = [];
-        this.sumWeight = 0;
+        //this.sumWeight=0;
     }
     Scales.prototype.add = function (product) {
         this.scalesH.push(product);
     };
     Scales.prototype.getSumScale = function () {
-        var _this = this;
+        var sumWeight = 0;
         this.scalesH.forEach(function (i) {
-            _this.sumWeight += i.getScale();
+            sumWeight += i.getScale();
         });
-        return this.sumWeight;
+        return sumWeight;
     };
     Scales.prototype.getNameList = function () {
         var scale = this.scalesH.map(function (i) {
@@ -82,6 +83,7 @@ scales.add(apple1);
 scales.add(tomato1);
 scales.add(apple2);
 scales.add(tomato2);
+console.log(scales.getSumScale());
 console.log(scales.getSumScale());
 console.log(scales.getNameList());
 //# sourceMappingURL=app.js.map

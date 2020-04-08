@@ -2,12 +2,10 @@
 class Scales {
 
    scalesH:Product[];
-   sumWeight:number;
-
+  
     constructor() {
         this.scalesH=[]
-       this.sumWeight=0;
-    }
+     }
 
     add(product:Product):void {
         
@@ -15,16 +13,16 @@ class Scales {
     }
 
     getSumScale():number {
-      
-     this.scalesH.forEach(i=>{
-        this.sumWeight+=i.getScale()
+      let sumWeight:number=0;
+     this.scalesH.forEach((i:Product)=>{
+        sumWeight+=i.getScale()
         
      })
-     return this.sumWeight
+     return sumWeight
     }
 
     getNameList():string[] {
-        let scale=this.scalesH.map(i=>{
+        let scale=this.scalesH.map((i:Product)=>{
             return i.getName();
         })
        return scale;
@@ -93,5 +91,6 @@ scales.add(apple1);
 scales.add(tomato1);
 scales.add(apple2);
 scales.add(tomato2);
+console.log(scales.getSumScale())
 console.log(scales.getSumScale())
 console.log(scales.getNameList())
