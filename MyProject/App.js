@@ -3,9 +3,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import PagesRouter from './pages/PagesRouter';
 import PagesLinks from './pages/PagesLinks';
+import combinedReducer from './redux/reducers.js';
+let store=createStore(combinedReducer);
 /*var info = require('./example.json');
 
 var updatePassword=Math.random();
@@ -32,10 +35,19 @@ var updatePassword=Math.random();
          .then( data => { console.log(data); } )
          .catch( error => { console.error(error); } );*/
 ReactDOM.render( 
-  <BrowserRouter>
+  
+ 
+        <BrowserRouter>
+         <Provider store={store}>
     <div>
       <PagesLinks />
       <PagesRouter />
+    
     </div>
+    </Provider>
   </BrowserRouter>
+
+    
+  
+  
 , document.getElementById('container') );

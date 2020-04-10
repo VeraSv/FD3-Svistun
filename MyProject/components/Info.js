@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {events} from './events';
+import {Prompt} from 'react-router-dom';
 class PageInfo extends React.PureComponent {
 
     static propTypes = {
      info:PropTypes.object,
     cardState:PropTypes.number,
-    page:PropTypes.string
+    page:PropTypes.string,
+    disabled:PropTypes.bool,
+    disabledDelete:PropTypes.bool
     };
+
     state = {
       name:this.props.info.name,
       description:this.props.info.description,
      info:this.props.info,
       newCard:{id:this.props.info.id, name:this.props.info.name,description:this.props.info.description},
       validName:'',
-      validDescr:''
+      validDescr:'',
+      change:false
   }
     newName=null;
     newDescription=null;
@@ -48,12 +53,34 @@ events.emit('Cancel',1);
 
     clickedEdit=()=>{
       events.emit('EditCard',2,this.props.info.id);
+      events.emit('DisabledDelete',true);
     }
     cancel=()=>{
-      events.emit('Cancel',1);
+      if(this.state.change) { 
+        let question =confirm('Есть несохраненные данные!')
+        if(question) { events.emit('Cancel',1);
+
+        this.setState({change:false})
+                }
+                } else  events.emit('Cancel',1);
+
+
     }
     delete=()=>{
-      events.emit('DeleteClicked',this.props.info.id,this.props.page);
+      
+      var question=confirm('Удалить товар?');
+        
+      if (question) { events.emit('DeleteClicked',this.props.info.id,this.props.page);
+     EO.stopPropagation();    
+     }
+
+     
+    }
+
+    onChange=()=>{
+      events.emit('ChangeCard',true)
+      events.emit('DisabledDelete',true);
+      this.setState({change:true})
     }
 
     validName=(EO)=>{
@@ -81,8 +108,8 @@ events.emit('Cancel',1);
         <td className='Description'>{this.state.info.description}</td>
         
           <td>
-          <input type={'button'} value={'Edit'} onClick={this.clickedEdit}/>
-       <input type={'button'} value={'Delete'} onClick={this.delete}/>
+          <input type={'button'} value={'Edit'} onClick={this.clickedEdit} disabled={this.props.disabled}/>
+       <input type={'button'} value={'Delete'} onClick={this.delete} disabled={this.props.disabledDelete}/>
        
       </td>
         </tr>
@@ -92,15 +119,21 @@ events.emit('Cancel',1);
      return (
       <tr  key={this.props.info.id} id={this.props.info.id} > 
        
-      <td><input  className={'Edit'} type={'text'} defaultValue={this.state.info.name} ref={this.setName} onBlur={this.validName}></input></td> 
-      <td className='Description'><textarea  className={'Edit Description'}  defaultValue={this.state.info.description} ref={this.setDescription} onBlur={this.validDescr}></textarea></td>
+      <td><input  className={'Edit'} type={'text'} defaultValue={this.state.info.name} ref={this.setName} onBlur={this.validName} onChange={this.onChange}></input></td> 
+      <td className='Description'><textarea  className={'Edit Description'}  defaultValue={this.state.info.description} ref={this.setDescription} onBlur={this.validDescr} onChange={this.onChange}></textarea></td>
       
         <td>
-        <input type={'button'} value={'Save'} style={{background:'green'}} onClick={this.setNewText}/>
-     <input type={'button'} value={'Cancel'}  style={{background:'red'}} onClick={this.cancel}/>
+        <input type={'button'} value={'Save'} style={{background:'green'}} onClick={this.setNewText} />
+     <input type={'button'} value={'Cancel'}  style={{background:'red'}} onClick={this.cancel} />
      
      </td>
      <td className='ValText'><span className={'Valid'}>{this.state.validName}</span><span className={'Valid'}>{this.state.validDescr}</span></td>
+     <Prompt
+					when={ this.state.change }
+					message={ location => (
+						`Вы уверены, что хотите перейти на другую страницу?`
+					)}
+				/>
       </tr>
     )
     ;

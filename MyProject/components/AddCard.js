@@ -2,17 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './AddCard.css'
 import {events} from './events';
+import {Prompt} from 'react-router-dom';
 class AddCard extends React.PureComponent {
    static PropTypes={
        id:PropTypes.number,
-       page:PropTypes.string
+       page:PropTypes.string,
+       disabled:PropTypes.bool,
+      
    }
   
     state = {
-     
+     disabled:this.props.disabled,
         newCard:{id:this.props.id, name:'', description:''},
         validName:'Пожалуйста, введите значение',
         validDescr:'Пожалуйста, введите значение',
+        change:false,
+      
        
     }
    
@@ -29,16 +34,7 @@ class AddCard extends React.PureComponent {
         }
 
       setNewText=()=>{
-if(this.newDescription) {
-    let newText=this.newDescription.value;
-    
-       
-}
-if(this.newName) {
-    let newText=this.newName.value;
-    
-       
-}
+
 
 var newCard=this.state.newCard;
       newCard.description=this.newDescription.value;
@@ -50,39 +46,60 @@ events.emit('CancelAdd');
       }
 
       cancel=()=>{
-        events.emit('CancelAdd',false);
+        if(this.state.change) { 
+          
+let question =confirm('Есть несохраненные данные!')
+if(question) { events.emit('CancelAdd',false);
+this.setState({change:false})
+        }
+        } else   events.emit('CancelAdd',false);
+        
       }
 
       validName=(EO)=>{
         if(!EO.target.value) {
          this.setState({validName:'Пожалуйста, введите значение'});
+          this.setState({disabled:true})
         } else {
             this.setState({validName:''});
+            this.setState({disabled:false})
         }
-       // this.validForm()
+       
       }
 
       validDescr=(EO)=>{
         if(!EO.target.value) {
          this.setState({validDescr:'Пожалуйста, введите значение'});
+         this.setState({disabled:true})
         } else {
             this.setState({validDescr:''});
+            this.setState({disabled:false})
         }
-        //this.validForm()
+        
       }
-
+      onChange=()=>{
+        this.setState({change:true})
+        events.emit('ChangeCard',true)
+        events.emit('DisabledDelete',true);
+      }
        render(){
       
           return(   <div><h2>{'Добавить позицию'}</h2>
          <table className='NewCard' >
            <tbody>
-           <tr><td>{'Название: '}</td><td  className={'NewText'}><input className={'NewText'} type={'text'} defaultValue='' ref={this.setNewName} onBlur={this.validName}/></td ><td className='ValText'><span className='Valid'>{this.state.validName}</span></td></tr>
-             <tr><td>{'Описание: '}</td><td  className={'NewText'}><textarea  className={'NewText'}  defaultValue='' ref={this.setNewDescription} onBlur={this.validDescr}/></td><td className='ValText'><span className='Valid'>{this.state.validDescr}</span></td> </tr>
+           <tr><td>{'Название: '}</td><td  className={'NewText'}><input className={'NewText'} type={'text'} defaultValue='' ref={this.setNewName} onBlur={this.validName} onChange={this.onChange}/></td><td className='ValText'><span className='Valid'>{this.state.validName}</span></td></tr>
+             <tr><td>{'Описание: '}</td><td  className={'NewText'}><textarea  className={'NewText'}  defaultValue='' ref={this.setNewDescription} onBlur={this.validDescr} onChange={this.onChange}/></td><td className='ValText'><span className='Valid'>{this.state.validDescr}</span></td></tr>
              
            </tbody>
          </table>
-         <input type={'button'} value={'Save'} onClick={this.setNewText} />
-         <input type={'button'} value={'Cancel'} onClick={this.cancel}/>
+         <input type={'button'} value={'Save'} onClick={this.setNewText} disabled={this.state.disabled}/>
+         <input type={'button'} value={'Cancel'} onClick={this.cancel} />
+         <Prompt
+					when={ this.state.change }
+					message={ location => (
+						`Вы уверены, что хотите перейти на другую страницу?`
+					)}
+				/>
          </div>)
         
        }
