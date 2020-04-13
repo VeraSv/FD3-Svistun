@@ -93,7 +93,7 @@ this.setState({change:false})
            </tbody>
          </table>
          <input type={'button'} value={'Save'} onClick={this.setNewText} disabled={this.state.disabled}/>
-         <input type={'button'} value={'Cancel'} onClick={this.cancel} />
+         <input className={'CancelAdd'} type={'button'} value={'Cancel'} onClick={this.cancel} />
          <Prompt
 					when={ this.state.change }
 					message={ location => (

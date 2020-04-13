@@ -19,7 +19,10 @@ class PageInfo extends React.PureComponent {
    cardEdit:'',
    cardState:1,
    add:false,
-   page:''
+   page:'',
+   searchValue:'',
+   data:this.props.data
+   
   }
  
    componentWillUnmount = () => {
@@ -70,16 +73,35 @@ this.setState({cardState:state,changeCard:false,disabledDelete:false,disAdd:true
     changeCard=(value)=>{
       this.setState({changeCard:value, disAdd:true})
     }
+inputSearch=null;
+inputSort=null;
+    search=(ref)=>{
+      this.inputSearch=ref 
+    }
+    changeSearch=()=>{
+      this.setState({searchValue:this.inputSearch.value}, this.setData)
+    }
+
+    
+    setData=()=>{
+      var res={...this.props.data};
+      
+      if(this.state.searchValue) {
+      res[this.state.page]=res[this.state.page].filter(s=>{var str=s.name.toLowerCase();return  str.indexOf(this.state.searchValue)!=-1})};
+     
+            this.setState({data:res})
+      
+     
+    }
 
   render() {
   
   
     let info;
     
-
-      if(this.props.pageId=='A'){ info=this.props.data.pageA.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})};
-      if(this.props.pageId=='Б'){ info=this.props.data.pageB.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})};
-      if(this.props.pageId=='В'){ info=this.props.data.pageV.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={  this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})}
+       if(this.state.page)  info=this.state.data[this.state.page].map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>});
+     // if(this.props.pageId=='Б'){ info=this.state.data.pageB.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})};
+     // if(this.props.pageId=='В'){ info=this.state.data.pageV.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={  this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})}
     
    
    let newCard=''
@@ -87,7 +109,11 @@ this.setState({cardState:state,changeCard:false,disabledDelete:false,disAdd:true
     var disAdd; if(this.state.cardState==2) disAdd=true; else disAdd=false; 
     
     return (
-      <div > 
+      <div >
+        <br />
+   
+        <span>{'Поиск: '}</span>
+        <input type='text' defaultValue={''} ref={this.search} onChange={this.changeSearch}></input> 
       <table className='Table'>
        <tbody>
         <tr className='title'  key='title'>

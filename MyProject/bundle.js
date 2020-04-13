@@ -27710,6 +27710,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -27764,7 +27766,10 @@ var PageInfo = function (_React$PureComponent) {
       cardEdit: '',
       cardState: 1,
       add: false,
-      page: ''
+      page: '',
+      searchValue: '',
+      data: _this.props.data
+
     }, _this.componentWillUnmount = function () {
 
       _events.events.addListener('DisabledDelete', _this.disabledDelete);
@@ -27784,6 +27789,20 @@ var PageInfo = function (_React$PureComponent) {
       _this.setState({ add: state, changeCard: false, disabledDelete: false });
     }, _this.changeCard = function (value) {
       _this.setState({ changeCard: value, disAdd: true });
+    }, _this.inputSearch = null, _this.inputSort = null, _this.search = function (ref) {
+      _this.inputSearch = ref;
+    }, _this.changeSearch = function () {
+      _this.setState({ searchValue: _this.inputSearch.value }, _this.setData);
+    }, _this.setData = function () {
+      var res = _extends({}, _this.props.data);
+
+      if (_this.state.searchValue) {
+        res[_this.state.page] = res[_this.state.page].filter(function (s) {
+          var str = s.name.toLowerCase();return str.indexOf(_this.state.searchValue) != -1;
+        });
+      };
+
+      _this.setState({ data: res });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -27814,21 +27833,12 @@ var PageInfo = function (_React$PureComponent) {
 
       var info = void 0;
 
-      if (this.props.pageId == 'A') {
-        info = this.props.data.pageA.map(function (i) {
-          var cardState = void 0;if (_this2.state.cardEdit == i.id && _this2.state.cardState == 2) cardState = 2;else cardState = 1;return _react2.default.createElement(_Info2.default, { key: i.id, cardState: cardState, info: i, page: _this2.state.page, disabled: _this2.state.changeCard, disabledDelete: _this2.state.disabledDelete });
-        });
-      };
-      if (this.props.pageId == 'Б') {
-        info = this.props.data.pageB.map(function (i) {
-          var cardState = void 0;if (_this2.state.cardEdit == i.id && _this2.state.cardState == 2) cardState = 2;else cardState = 1;return _react2.default.createElement(_Info2.default, { key: i.id, cardState: cardState, info: i, page: _this2.state.page, disabled: _this2.state.changeCard, disabledDelete: _this2.state.disabledDelete });
-        });
-      };
-      if (this.props.pageId == 'В') {
-        info = this.props.data.pageV.map(function (i) {
-          var cardState = void 0;if (_this2.state.cardEdit == i.id && _this2.state.cardState == 2) cardState = 2;else cardState = 1;return _react2.default.createElement(_Info2.default, { key: i.id, cardState: cardState, info: i, page: _this2.state.page, disabled: _this2.state.changeCard, disabledDelete: _this2.state.disabledDelete });
-        });
-      }
+      if (this.state.page) info = this.state.data[this.state.page].map(function (i) {
+        var cardState = void 0;if (_this2.state.cardEdit == i.id && _this2.state.cardState == 2) cardState = 2;else cardState = 1;return _react2.default.createElement(_Info2.default, { key: i.id, cardState: cardState, info: i, page: _this2.state.page, disabled: _this2.state.changeCard, disabledDelete: _this2.state.disabledDelete });
+      });
+      // if(this.props.pageId=='Б'){ info=this.state.data.pageB.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})};
+      // if(this.props.pageId=='В'){ info=this.state.data.pageV.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={  this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})}
+
 
       var newCard = '';
       if (this.state.add == true) {
@@ -27839,6 +27849,13 @@ var PageInfo = function (_React$PureComponent) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'span',
+          null,
+          'Поиск: '
+        ),
+        _react2.default.createElement('input', { type: 'text', defaultValue: '', ref: this.search, onChange: this.changeSearch }),
         _react2.default.createElement(
           'table',
           { className: 'Table' },
