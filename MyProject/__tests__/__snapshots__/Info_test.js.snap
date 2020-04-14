@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Info 1`] = `
+<tr
+  className=""
+  id={1}
+>
+  <td>
+    Абелия
+  </td>
+  <td
+    className="Description"
+  >
+    Полувечнозеленый кустарник, достигающий в высоту до 2 м; листья блестящие, яйцевидные, относительно мелкие (длиной до 3 см), темно-зеленого цвета. Белые цветки колокольчиковидной формы с сильным запахом, собраны в соцветие метелку на концах побегов. Цветет с октября по июнь.
+  </td>
+  <td>
+    <input
+      className="InputEdit"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+    <input
+      className="Delete"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Info 2`] = `
+<tr
+  className=""
+  id={1}
+>
+  <td>
+    Абелия
+  </td>
+  <td
+    className="Description"
+  >
+    Полувечнозеленый кустарник, достигающий в высоту до 2 м; листья блестящие, яйцевидные, относительно мелкие (длиной до 3 см), темно-зеленого цвета. Белые цветки колокольчиковидной формы с сильным запахом, собраны в соцветие метелку на концах побегов. Цветет с октября по июнь.
+  </td>
+  <td>
+    <input
+      className="InputEdit"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+    <input
+      className="Delete"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;
+
+exports[`работа Info 3`] = `
+<tr
+  className=""
+  id={1}
+>
+  <td>
+    Абелия
+  </td>
+  <td
+    className="Description"
+  >
+    Полувечнозеленый кустарник, достигающий в высоту до 2 м; листья блестящие, яйцевидные, относительно мелкие (длиной до 3 см), темно-зеленого цвета. Белые цветки колокольчиковидной формы с сильным запахом, собраны в соцветие метелку на концах побегов. Цветет с октября по июнь.
+  </td>
+  <td>
+    <input
+      className="InputEdit"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Edit"
+    />
+    <input
+      className="Delete"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Delete"
+    />
+  </td>
+</tr>
+`;

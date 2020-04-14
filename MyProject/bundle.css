@@ -4,11 +4,51 @@
   margin:15px;
   display:inline-block;
 }
-.NewCard, td {
-    border: solid 1px black;
+.Deleted * {
+    
+        transition-duration: 1s;
+        -webkit-transition-timing-function: linear; 
+        transition-timing-function: linear;
+        overflow: hidden;
+    height: 0px;
+    opacity: 0;
+    font-size: 0;
+    padding: 0;
+    border: none;
+    border-collapse: none;
+    box-sizing:none;
+    
+}
+
+.Deleted {
+    opacity: 0;
+    border: none;
+   border-collapse: none;
+   padding: 0;
+   box-sizing:none;
+}
+
+.InputEdit, .Delete {
+width: 55px;
+}
+
+.Delete {
+    padding-left: 3px;
+}
+
+  
+ .NewCard, td {
+    border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     border-collapse: collapse;
     height: 30px;
+}
+
+.NewName {
+    font-style: italic;
+box-sizing: border-box;
+height: 30px;
+width: 308px;
 }
 
 .NewText {
@@ -16,6 +56,7 @@
 box-sizing: border-box;
 height: 130px;
 width: 308px;
+
 }
 
 .Valid {
@@ -24,12 +65,37 @@ width: 308px;
 }
 
 .ValText {
-    border: solid 1px white;
-}.Table {
-    margin-top: 15px;
+    border: solid 1px rgba(125, 248, 177, 0.1);
 }
+
+@media (max-width: 767px) {
+    .NewName, .NewText {
+     
+    width: 200px;
+    }
+}body {
+    background: rgba(125, 248, 177, 0.1) ;
+   background-position: right top;
+   background-size: 45%;
+   background-repeat: no-repeat;
+   
+}  
+
+@media (max-width: 767px) {
+    body {
+        background-size: 0%;    
+    }   
+}
+
+.Table {
+    margin-top: 15px;
+  
+}
+
+
+
 .Table, td {
-    border: solid 1px black;
+    border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     border-collapse: collapse;
     height: 30px;
@@ -37,8 +103,9 @@ width: 308px;
 }
 
 
-.title {
+.title td{
     font-weight: 700;
+    border-bottom:2px solid black
 }
 .Edit {
 font-style: italic;
@@ -57,7 +124,7 @@ width: 208px;
 }
 
 .ValText {
-    border: solid 1px white;
+    border: solid 1px rgba(125, 248, 177, 0.1);
 }.PageLink {
     color: black;
     margin-right: 10px;

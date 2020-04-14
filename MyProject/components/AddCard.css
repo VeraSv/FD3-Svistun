@@ -1,8 +1,15 @@
 .NewCard, td {
-    border: solid 1px black;
+    border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     border-collapse: collapse;
     height: 30px;
+}
+
+.NewName {
+    font-style: italic;
+box-sizing: border-box;
+height: 30px;
+width: 308px;
 }
 
 .NewText {
@@ -10,6 +17,7 @@
 box-sizing: border-box;
 height: 130px;
 width: 308px;
+
 }
 
 .Valid {
@@ -18,5 +26,12 @@ width: 308px;
 }
 
 .ValText {
-    border: solid 1px white;
+    border: solid 1px rgba(125, 248, 177, 0.1);
+}
+
+@media (max-width: 767px) {
+    .NewName, .NewText {
+     
+    width: 200px;
+    }
 }

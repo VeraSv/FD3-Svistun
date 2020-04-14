@@ -1,0 +1,34 @@
+.Deleted * {
+    
+        transition-duration: 1s;
+        -webkit-transition-timing-function: linear; 
+        transition-timing-function: linear;
+        overflow: hidden;
+    height: 0px;
+    opacity: 0;
+    font-size: 0;
+    padding: 0;
+    border: none;
+    border-collapse: none;
+    box-sizing:none;
+    
+}
+
+.Deleted {
+    opacity: 0;
+    border: none;
+   border-collapse: none;
+   padding: 0;
+   box-sizing:none;
+}
+
+.InputEdit, .Delete {
+width: 55px;
+}
+
+.Delete {
+    padding-left: 3px;
+}
+
+  
+ 

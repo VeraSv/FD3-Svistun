@@ -55,13 +55,15 @@ class Page_Info extends React.PureComponent {
   if ( changed ){
     let info=JSON.stringify(dataH.result);
     dataH.result=info;
+    this.props.dispatch( pagesLoadingAC() );
 this.setState({dataH:dataH},this.saveState)
+
   }
   
   }
   
   saveState=()=>{
-    this.props.dispatch( pagesLoadingAC() );
+   
  
     var updatePassword=Math.random();
  
@@ -95,8 +97,8 @@ this.setState({dataH:dataH},this.saveState)
   dataH.result={...this.props.info.data}; 
   for(var i in dataH.result)
   {
-    if(i==page) dataH.result[i]= dataH.result[i].filter( c => c.id!=cardId
-     );
+   if(i==page) dataH.result[i]= dataH.result[i].filter( c => c.id!=cardId);
+
   }
   let info=JSON.stringify(dataH.result);
   dataH.result=info;
@@ -115,6 +117,7 @@ addNewCard=(data, page)=>{
 
   let info=JSON.stringify(dataH.result);
   dataH.result=info;
+  this.props.dispatch( pagesLoadingAC() );
   this.setState({dataH:dataH},this.saveState)
   
   //this.saveState()

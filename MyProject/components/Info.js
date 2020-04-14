@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {events} from './events';
 import {Prompt} from 'react-router-dom';
-class PageInfo extends React.PureComponent {
+import './Info.css'
+class Info extends React.PureComponent {
 
     static propTypes = {
      info:PropTypes.object,
@@ -19,7 +20,8 @@ class PageInfo extends React.PureComponent {
       newCard:{id:this.props.info.id, name:this.props.info.name,description:this.props.info.description},
       validName:'',
       validDescr:'',
-      change:false
+      change:false,
+      className:''
   }
     newName=null;
     newDescription=null;
@@ -66,11 +68,16 @@ events.emit('Cancel',1);
 
 
     }
-    delete=()=>{
+    delete=(EO)=>{
       
       var question=confirm('Удалить товар?');
         
-      if (question) { events.emit('DeleteClicked',this.props.info.id,this.props.page);
+      if (question) { 
+this.setState({className:'Deleted'})
+      events.emit('DeleteClicked',this.props.info.id,this.props.page);
+
+     
+
      EO.stopPropagation();    
      }
 
@@ -102,14 +109,14 @@ events.emit('Cancel',1);
     render() {
       if(this.props.cardState==1)
       return (
-        <tr key={this.props.info.id} id={this.props.info.id} > 
+        <tr key={this.props.info.id} id={this.props.info.id} className={this.state.className}> 
          
         <td>{this.state.info.name}</td> 
         <td className='Description'>{this.state.info.description}</td>
         
           <td>
-          <input type={'button'} value={'Edit'} onClick={this.clickedEdit} disabled={this.props.disabled}/>
-       <input type={'button'} value={'Delete'} onClick={this.delete} disabled={this.props.disabledDelete}/>
+          <input className='InputEdit' type={'button'} value={'Edit'} onClick={this.clickedEdit} disabled={this.props.disabled}/>
+       <input className='Delete' type={'button'} value={'Delete'} onClick={this.delete} disabled={this.props.disabledDelete}/>
        
       </td>
         </tr>
@@ -124,7 +131,7 @@ events.emit('Cancel',1);
       
         <td>
         <input type={'button'} value={'Save'} style={{background:'green'}} onClick={this.setNewText} />
-     <input type={'button'} value={'Cancel'}  style={{background:'red'}} onClick={this.cancel} />
+     <input className='CancelEdit' type={'button'} value={'Cancel'}  style={{background:'red'}} onClick={this.cancel} />
      
      </td>
      <td className='ValText'><span className={'Valid'}>{this.state.validName}</span><span className={'Valid'}>{this.state.validDescr}</span></td>
@@ -140,4 +147,4 @@ events.emit('Cancel',1);
     }
   
   }
-  export default PageInfo;  
+  export default Info;  

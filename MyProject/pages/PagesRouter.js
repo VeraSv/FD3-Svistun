@@ -14,7 +14,7 @@ class PagesRouter extends React.Component {
   render() {
    
     return (
-      <div>
+      <div >
        <Route path="/" exact component={Main_Page} />
        
         <Route path="/list" component={() => <Page_List   />} />
