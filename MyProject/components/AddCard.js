@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './AddCard.css'
 import {events} from './events';
-import {Prompt} from 'react-router-dom';
 class AddCard extends React.PureComponent {
    static PropTypes={
        id:PropTypes.number,
@@ -84,7 +83,9 @@ this.setState({change:false})
       }
        render(){
       
-          return(   <div><h2>{'Добавить позицию'}</h2>
+          return(   <div className='AddCard'>
+            <div className='Form'>
+            <h2>{'Добавить позицию'}</h2>
          <table className='NewCard' >
            <tbody>
            <tr><td>{'Название: '}</td><td  className={'NewName'}><input className={'NewName'} type={'text'} defaultValue='' ref={this.setNewName} onBlur={this.validName} onChange={this.onChange}/></td><td className='ValText'><span className='Valid'>{this.state.validName}</span></td></tr>
@@ -92,14 +93,10 @@ this.setState({change:false})
              
            </tbody>
          </table>
-         <input type={'button'} value={'Save'} onClick={this.setNewText} disabled={this.state.disabled}/>
+         <input className={'SaveAdd'} type={'button'} value={'Save'} onClick={this.setNewText} disabled={this.state.disabled}/>
          <input className={'CancelAdd'} type={'button'} value={'Cancel'} onClick={this.cancel} />
-         <Prompt
-					when={ this.state.change }
-					message={ location => (
-						`Вы уверены, что хотите перейти на другую страницу?`
-					)}
-				/>
+         
+        </div>
          </div>)
         
        }

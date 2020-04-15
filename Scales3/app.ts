@@ -1,73 +1,74 @@
 interface IStorageEngine {
-addItem(item:Product):void;
-getItem(index:number):Product;
-getCount():number;
+  addItem(item:Product):void;
+  getItem(index:number):Product;
+  getCount():number;
 }
 
 class Scales<StorageEngine extends IStorageEngine> {
 
-   scalesH:StorageEngine;
+  scalesH:StorageEngine;
   
-    constructor(_StorageEngine:StorageEngine) {
-        this.scalesH=_StorageEngine;
-     }
+  constructor(_StorageEngine:StorageEngine) {
+    this.scalesH=_StorageEngine;
+  }
 
-    add(product:Product):void {
-        
-        this.scalesH.addItem(product);
-    }
+  add(product:Product):void {
+    this.scalesH.addItem(product);
+  }
 
-    getSumScale():number {
-      let sumWeight:number=0;
-      for(let i=0; i<this.scalesH.getCount(); i++){
-        sumWeight+=this.scalesH.getItem(i).getScale()
-      }
-     
-     return sumWeight
+  getSumScale():number {
+    let sumWeight:number=0;
+    for(let i:number=0; i<this.scalesH.getCount(); i++){
+      sumWeight+=this.scalesH.getItem(i).getScale()
     }
+    return sumWeight
+  }
 
-    getNameList():string[] {
-      let list:string[]=[];
-      for(let i=0; i<this.scalesH.getCount(); i++){
-       list.push(this.scalesH.getItem(i).getName())
-      }
-      return list;
+  getNameList():string[] {
+    let list:string[]=[];
+    for(let i:number=0; i<this.scalesH.getCount(); i++){
+      list.push(this.scalesH.getItem(i).getName())
     }
+    return list;
+  }
 }
 
 class ScalesStorageEngineArray implements IStorageEngine {
   items:Product[]=[];
   addItem(item:Product):void {
-     this.items.push(item)
+    this.items.push(item)
   };
+
   getItem(index:number):Product {
-      return this.items[index]
+    return this.items[index]
   };
+
   getCount():number {
-     return this.items.length
+    return this.items.length
   };
 }
 
 class ScalesStorageEngineLocalStorage implements IStorageEngine{
+  prodH:any[]=[];
  
-  locKey:string='prod';
 
   addItem(item:Product):void {
-    let prodH:Product[]=[];
+    this.prodH=[];
+
     if(!localStorage.prod) localStorage.prod=[]; 
-   if(localStorage.prod) prodH=JSON.parse(localStorage.prod);
-    prodH.push(item);
-    localStorage.prod=JSON.stringify(prodH);
- };
+    else this.prodH=JSON.parse(localStorage.prod);
+    this.prodH.push(item);
+    localStorage.prod=JSON.stringify(this.prodH);
+  };
 
  getItem(index:number):Product {
-  let prodH:any[]=JSON.parse(localStorage.prod);
-  return new Product(prodH[index].weight,prodH[index].name)
- };
+    this.prodH=JSON.parse(localStorage.prod);
+    return new Product(this.prodH[index].weight, this.prodH[index].name)
+  };
 
  getCount():number {
-  let prodH:any[]=JSON.parse(localStorage.prod);
-  return prodH.length;
+   this.prodH=JSON.parse(localStorage.prod);
+   return this.prodH.length;
  };
 }
 
@@ -88,6 +89,7 @@ class Product {
       return this.name
     }
 }
+
 let storageArray= new ScalesStorageEngineArray();
 let localStorageArray=new ScalesStorageEngineLocalStorage()
 let scalesArray=new Scales<ScalesStorageEngineArray>(storageArray);

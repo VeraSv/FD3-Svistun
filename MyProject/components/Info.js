@@ -130,7 +130,7 @@ this.setState({className:'Deleted'})
       <td className='Description'><textarea  className={'Edit Description'}  defaultValue={this.state.info.description} ref={this.setDescription} onBlur={this.validDescr} onChange={this.onChange}></textarea></td>
       
         <td>
-        <input type={'button'} value={'Save'} style={{background:'green'}} onClick={this.setNewText} />
+        <input className='SaveEdit' type={'button'} value={'Save'} style={{background:'green'}} onClick={this.setNewText} />
      <input className='CancelEdit' type={'button'} value={'Cancel'}  style={{background:'red'}} onClick={this.cancel} />
      
      </td>

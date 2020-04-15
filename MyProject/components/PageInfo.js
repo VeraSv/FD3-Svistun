@@ -125,7 +125,7 @@ inputSort=null;
     {info}
       </tbody>
       </table>
-      <input type={'button'} value={'New product'} onClick={this.addCard} disabled={ disAdd}/> 
+      <input className={'NewProduct'} type={'button'} value={'New product'} onClick={this.addCard} disabled={ disAdd}/> 
       <div>{newCard}</div>
        
       </div>

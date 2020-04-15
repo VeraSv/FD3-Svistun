@@ -9,7 +9,9 @@ body {
 @media (max-width: 767px) {
     body {
         background-size: 0%;    
-    }   
+    } 
+
+    
 }
 
 .Table {
@@ -19,7 +21,7 @@ body {
 
 
 
-.Table, td {
+.Table td {
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     border-collapse: collapse;
@@ -35,12 +37,12 @@ body {
 .Edit {
 font-style: italic;
 box-sizing: border-box;
-height: 130px;
+height: 230px;
 width: 208px;
 }
 
 .Description {
-    width: 550px;
+    width: 460px;
 }
 
 .Valid {
@@ -48,6 +50,7 @@ width: 208px;
     color: red;
 }
 
-.ValText {
-    border: solid 1px rgba(125, 248, 177, 0.1);
+
+.NewProduct {
+    margin-top: 10px;
 }

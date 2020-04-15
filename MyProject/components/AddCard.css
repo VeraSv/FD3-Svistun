@@ -1,21 +1,40 @@
-.NewCard, td {
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
-    border-collapse: collapse;
+.AddCard {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form {
+    width: 550px;
+    height: fit-content;
+    background-color: white;
+    border-radius: 4px;
+    position: relative;
+    text-align: center;
+  padding: 10px;
+}
+
+.NewCard td {
+
     height: 30px;
 }
 
 .NewName {
     font-style: italic;
-box-sizing: border-box;
+
 height: 30px;
 width: 308px;
 }
 
 .NewText {
     font-style: italic;
-box-sizing: border-box;
-height: 130px;
+
+height: 300px;
 width: 308px;
 
 }
@@ -25,8 +44,11 @@ width: 308px;
     color: red;
 }
 
-.ValText {
-    border: solid 1px rgba(125, 248, 177, 0.1);
+
+
+.SaveAdd, .CancelAdd {
+margin-top: 10px;
+margin-bottom: 10px; 
 }
 
 @media (max-width: 767px) {
