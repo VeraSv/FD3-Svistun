@@ -36834,7 +36834,10 @@ var PageInfo = function (_React$PureComponent) {
       add: false,
       page: '',
       searchValue: '',
-      data: _this.props.data
+      data: _this.props.data,
+      pagination: false,
+      numberItem: 0,
+      numberPage: 0
 
     }, _this.componentWillUnmount = function () {
 
@@ -36869,6 +36872,17 @@ var PageInfo = function (_React$PureComponent) {
       };
 
       _this.setState({ data: res });
+    }, _this.select = null, _this.selectPagination = function (ref) {
+      _this.select = ref;
+    }, _this.changePagination = function () {
+
+      if (_this.select.value == 'All') _this.setState({ pagination: false });else {
+        var v = Number.parseInt(_this.select.value);
+        _this.setState({ pagination: true, numberItem: v, numberPage: 0 });
+      }
+    }, _this.clickPage = function (EO) {
+      var n = Number.parseInt(EO.target.innerText);
+      _this.setState({ numberPage: n });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -36898,13 +36912,36 @@ var PageInfo = function (_React$PureComponent) {
       var _this2 = this;
 
       var info = void 0;
+      var pagination = void 0;
 
-      if (this.state.page) info = this.state.data[this.state.page].map(function (i) {
-        var cardState = void 0;if (_this2.state.cardEdit == i.id && _this2.state.cardState == 2) cardState = 2;else cardState = 1;return _react2.default.createElement(_Info2.default, { key: i.id, cardState: cardState, info: i, page: _this2.state.page, disabled: _this2.state.changeCard, disabledDelete: _this2.state.disabledDelete });
-      });
-      // if(this.props.pageId=='Б'){ info=this.state.data.pageB.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})};
-      // if(this.props.pageId=='В'){ info=this.state.data.pageV.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={  this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})}
-
+      if (this.state.page) {
+        info = this.state.data[this.state.page].map(function (i) {
+          var cardState = void 0;if (_this2.state.cardEdit == i.id && _this2.state.cardState == 2) cardState = 2;else cardState = 1;return _react2.default.createElement(_Info2.default, { key: i.id, cardState: cardState, info: i, page: _this2.state.page, disabled: _this2.state.changeCard, disabledDelete: _this2.state.disabledDelete });
+        });
+        if (this.state.pagination) {
+          var numberH = [];
+          for (var i = 1; i <= Math.ceil(this.state.data[this.state.page].length / this.state.numberItem); i++) {
+            numberH.push(i);
+          }
+          var number = numberH.map(function (n) {
+            return _react2.default.createElement(
+              'li',
+              { key: _this2.state.page + n, onClick: _this2.clickPage },
+              n
+            );
+          });
+          if (this.state.numberPage <= 1) info = info.slice(0, this.state.numberItem);else {
+            var prePage = this.state.numberItem * (this.state.numberPage - 1);
+            var page = this.state.numberItem * this.state.numberPage;
+            info = info.slice(prePage, page);
+          }
+          pagination = _react2.default.createElement(
+            'ul',
+            { className: 'List' },
+            number
+          );
+        }
+      }
 
       var newCard = '';
       if (this.state.add == true) {
@@ -36952,6 +36989,37 @@ var PageInfo = function (_React$PureComponent) {
           )
         ),
         _react2.default.createElement('input', { className: 'NewProduct', type: 'button', value: 'New product', onClick: this.addCard, disabled: disAdd }),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('br', null),
+          pagination,
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'span',
+            null,
+            'Количество строк на странице: '
+          ),
+          _react2.default.createElement(
+            'select',
+            { ref: this.selectPagination, onChange: this.changePagination },
+            _react2.default.createElement(
+              'option',
+              { value: 'All' },
+              'All'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '5' },
+              '5'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '10' },
+              '10'
+            )
+          )
+        ),
         _react2.default.createElement(
           'div',
           null,
@@ -37092,6 +37160,7 @@ var Info = function (_React$PureComponent) {
   _createClass(Info, [{
     key: 'render',
     value: function render() {
+
       if (this.props.cardState == 1) return _react2.default.createElement(
         'tr',
         { key: this.props.info.id, id: this.props.info.id, className: this.state.className },
@@ -37159,6 +37228,7 @@ var Info = function (_React$PureComponent) {
 }(_react2.default.PureComponent);
 
 Info.propTypes = {
+  pageId: _propTypes2.default.string,
   info: _propTypes2.default.object,
   cardState: _propTypes2.default.number,
   page: _propTypes2.default.string,

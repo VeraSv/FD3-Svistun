@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './AddCard.css'
 import {events} from './events';
 class AddCard extends React.PureComponent {
-   static PropTypes={
+   static propTypes={
        id:PropTypes.number,
        page:PropTypes.string,
        disabled:PropTypes.bool,

@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа AddCard 1`] = `
+<div
+  className="AddCard"
+>
+  <div
+    className="Form"
+  >
+    <h2>
+      Добавить позицию
+    </h2>
+    <table
+      className="NewCard"
+    >
+      <tbody>
+        <tr>
+          <td>
+            Название: 
+          </td>
+          <td
+            className="NewName"
+          >
+            <input
+              className="NewName"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите значение
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Описание: 
+          </td>
+          <td
+            className="NewText"
+          >
+            <textarea
+              className="NewText"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите значение
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <input
+      className="SaveAdd"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Save"
+    />
+    <input
+      className="CancelAdd"
+      onClick={[Function]}
+      type="button"
+      value="Cancel"
+    />
+  </div>
+</div>
+`;
+
+exports[`работа AddCard 2`] = `
+<div
+  className="AddCard"
+>
+  <div
+    className="Form"
+  >
+    <h2>
+      Добавить позицию
+    </h2>
+    <table
+      className="NewCard"
+    >
+      <tbody>
+        <tr>
+          <td>
+            Название: 
+          </td>
+          <td
+            className="NewName"
+          >
+            <input
+              className="NewName"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите значение
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Описание: 
+          </td>
+          <td
+            className="NewText"
+          >
+            <textarea
+              className="NewText"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите значение
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <input
+      className="SaveAdd"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Save"
+    />
+    <input
+      className="CancelAdd"
+      onClick={[Function]}
+      type="button"
+      value="Cancel"
+    />
+  </div>
+</div>
+`;
+
+exports[`работа AddCard 3`] = `
+<div
+  className="AddCard"
+>
+  <div
+    className="Form"
+  >
+    <h2>
+      Добавить позицию
+    </h2>
+    <table
+      className="NewCard"
+    >
+      <tbody>
+        <tr>
+          <td>
+            Название: 
+          </td>
+          <td
+            className="NewName"
+          >
+            <input
+              className="NewName"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+              type="text"
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите значение
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Описание: 
+          </td>
+          <td
+            className="NewText"
+          >
+            <textarea
+              className="NewText"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите значение
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <input
+      className="SaveAdd"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Save"
+    />
+    <input
+      className="CancelAdd"
+      onClick={[Function]}
+      type="button"
+      value="Cancel"
+    />
+  </div>
+</div>
+`;

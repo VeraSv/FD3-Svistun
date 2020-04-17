@@ -54,3 +54,19 @@ width: 208px;
 .NewProduct {
     margin-top: 10px;
 }
+
+.List {
+    display: flex;
+list-style-type: none;
+}
+
+.List li {
+    margin-right: 10px;
+  color: blue;
+  cursor: pointer;
+  
+}
+
+.List li:hover {
+    color: red;
+}

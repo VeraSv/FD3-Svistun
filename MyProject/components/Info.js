@@ -6,6 +6,7 @@ import './Info.css'
 class Info extends React.PureComponent {
 
     static propTypes = {
+      pageId:PropTypes.string,
      info:PropTypes.object,
     cardState:PropTypes.number,
     page:PropTypes.string,
@@ -107,6 +108,7 @@ this.setState({className:'Deleted'})
     }
 
     render() {
+     
       if(this.props.cardState==1)
       return (
         <tr key={this.props.info.id} id={this.props.info.id} className={this.state.className}> 

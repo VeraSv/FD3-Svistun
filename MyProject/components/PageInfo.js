@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 import Info from './Info';
 import AddCard from './AddCard'
 import {events} from './events';
-import './PageInfo.css'
+import './PageInfo.css';
+
+
 import { pagesLoadingAC, pagesErrorAC, pagesSetAC } from "../redux/pagesAC";
 class PageInfo extends React.PureComponent {
 
@@ -21,7 +23,10 @@ class PageInfo extends React.PureComponent {
    add:false,
    page:'',
    searchValue:'',
-   data:this.props.data
+   data:this.props.data,
+   pagination:false,
+   numberItem:0,
+   numberPage:0
    
   }
  
@@ -93,17 +98,49 @@ inputSort=null;
       
      
     }
+   select=null
+    selectPagination=(ref)=> {
+    this.select=ref
+    }
+
+    changePagination=()=>{
+
+      if(this.select.value=='All') this.setState({pagination:false});
+     else  {
+       var v=Number.parseInt(this.select.value)
+       this.setState({pagination:true, numberItem:v, numberPage:0});
+     }
+    }
+
+    clickPage=(EO)=>{
+      var n=Number.parseInt(EO.target.innerText)
+      this.setState({numberPage:n})
+    }
 
   render() {
   
-  
-    let info;
-    
-       if(this.state.page)  info=this.state.data[this.state.page].map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>});
-     // if(this.props.pageId=='Б'){ info=this.state.data.pageB.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})};
-     // if(this.props.pageId=='В'){ info=this.state.data.pageV.map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={  this.state.changeCard} disabledDelete={this.state.disabledDelete}/>})}
-    
    
+    let info;
+    let pagination;
+    
+       if(this.state.page) {
+         info=this.state.data[this.state.page].map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info  key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>});
+         if(this.state.pagination)  {
+          let numberH=[];
+          for(let i=1; i<=Math.ceil(this.state.data[this.state.page].length / this.state.numberItem); i++) {
+            numberH.push(i)
+          }
+         let number=numberH.map(n => {return <li key={this.state.page+n} onClick={this.clickPage}>{n}</li>})
+         if(this.state.numberPage<=1)info=info.slice(0,this.state.numberItem)
+         else {
+           var prePage=this.state.numberItem*(this.state.numberPage-1);
+           var page=this.state.numberItem*this.state.numberPage
+            info=info.slice(prePage,page)
+         }
+         pagination=<ul className='List'>{number}</ul> 
+        } 
+      }
+       
    let newCard=''
     if(this.state.add==true) {var x=Math.round(Math.random()*50/0.1)*0.1+50; newCard=<AddCard id={x} page={this.state.page}  disabled={this.state.changeCard} />}
     var disAdd; if(this.state.cardState==2) disAdd=true; else disAdd=false; 
@@ -126,6 +163,16 @@ inputSort=null;
       </tbody>
       </table>
       <input className={'NewProduct'} type={'button'} value={'New product'} onClick={this.addCard} disabled={ disAdd}/> 
+    <div><br />{pagination}
+    <br />
+    <span>{'Количество строк на странице: '}</span>
+    <select ref={this.selectPagination} onChange={this.changePagination}>
+      <option value='All'>{'All'}</option> 
+    <option value='5'>{'5'}</option>
+    <option value='10'>{'10'}</option>
+    </select>
+
+    </div>
       <div>{newCard}</div>
        
       </div>
