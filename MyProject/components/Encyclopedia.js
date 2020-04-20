@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import PropTypes from 'prop-types';
 import Page from './Page'
 
 class Encyclopedia extends React.PureComponent {
@@ -10,12 +9,7 @@ class Encyclopedia extends React.PureComponent {
   
  }
   render() {
-    
-   
-     var elemA =this.props.data.pageA.map(i=>{return <li key={i.id}>{i.name}</li>})
-     var elemB =this.props.data.pageB.map(i=>{return <li key={i.id}>{i.name}</li>})
-     var elemV =this.props.data.pageV.map(i=>{return <li key={i.id}>{i.name}</li>})
-    
+      
     return (
       <div className="Component">
       
@@ -26,25 +20,15 @@ class Encyclopedia extends React.PureComponent {
  {<Page point={'В'}/>} 
 
       </div>
-      <div className='Description'>
+ 
+    <p>{'Любой пользователь может редактировать статьи энциклопедии. Все правки сохраняются.'}</p>
+    <p>{`Пользователи могут размещать статьи в энциклопедию растений.
+     Перед созданием статьи убедитесь, что нет аналогичной.`}<br /></p>
+    <p>{'Для этого воспользуйтесь поиском или посмотрите нет ли данного растения в списке.'}</p>
 
-        <span className='Point'><b>{'A'}</b></span><br />
-        <ul>
-         {elemA}
-       </ul>
-       
-       <span className='Point'><b>{'Б'}</b></span><br />
-       <ul>
-         {elemB}
-       </ul>
-       
-       <span className='Point'><b>{'В'}</b></span><br />
-       <ul>
-         {elemV}
-       </ul>
 
 </div>
-    </div>
+    
     )
     ;
 

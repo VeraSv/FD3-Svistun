@@ -130,7 +130,7 @@ inputSort=null;
           for(let i=1; i<=Math.ceil(this.state.data[this.state.page].length / this.state.numberItem); i++) {
             numberH.push(i)
           }
-         let number=numberH.map(n => {return <li key={this.state.page+n} onClick={this.clickPage}>{n}</li>})
+         let number=numberH.map(n => {return <li key={this.state.page+n}><a onClick={this.clickPage} >{n}</a></li>})
          if(this.state.numberPage<=1)info=info.slice(0,this.state.numberItem)
          else {
            var prePage=this.state.numberItem*(this.state.numberPage-1);

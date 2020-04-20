@@ -161,16 +161,18 @@ width: 208px;
 list-style-type: none;
 }
 
-.List li {
+.List li a {
     margin-right: 10px;
   color: blue;
   cursor: pointer;
   
 }
 
-.List li:hover {
+.List li a:hover {
     color: red;
-}.PageLink {
+}
+
+.PageLink {
     color: black;
     margin-right: 10px;
 }
