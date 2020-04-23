@@ -280,7 +280,7 @@ process.umask = function() { return 0; };
  */
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactIs = __webpack_require__(8);
+  var ReactIs = __webpack_require__(9);
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -433,7 +433,7 @@ module.exports = invariant;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return locationsAreEqual; });
 /* unused harmony export parsePath */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return createPath; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_esm_extends__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_esm_extends__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_resolve_pathname__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_value_equal__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_tiny_warning__ = __webpack_require__(56);
@@ -1525,6 +1525,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.events = undefined;
+
+var _events = __webpack_require__(109);
+
+var events = new _events.EventEmitter();
+
+exports.events = events;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
@@ -1536,7 +1554,7 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1560,7 +1578,7 @@ function _extends() {
 }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1576,24 +1594,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.events = undefined;
-
-var _events = __webpack_require__(109);
-
-var events = new _events.EventEmitter();
-
-exports.events = events;
 
 /***/ }),
 /* 12 */
@@ -2879,7 +2879,7 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_esm_inheritsLoose__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_esm_assertThisInitialized__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__babel_runtime_helpers_esm_extends__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__babel_runtime_helpers_esm_extends__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__babel_runtime_helpers_esm_objectWithoutPropertiesLoose__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hoist_non_react_statics__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_hoist_non_react_statics__);
@@ -2887,7 +2887,7 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_is__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_is__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_is___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_react_is__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_Subscription__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_PropTypes__ = __webpack_require__(28);
@@ -3743,7 +3743,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouterDom = __webpack_require__(7);
 
-var _reactRedux = __webpack_require__(10);
+var _reactRedux = __webpack_require__(11);
 
 var _redux = __webpack_require__(20);
 
@@ -3751,11 +3751,11 @@ var _PagesRouter = __webpack_require__(102);
 
 var _PagesRouter2 = _interopRequireDefault(_PagesRouter);
 
-var _PagesLinks = __webpack_require__(116);
+var _PagesLinks = __webpack_require__(118);
 
 var _PagesLinks2 = _interopRequireDefault(_PagesLinks);
 
-var _reducers = __webpack_require__(118);
+var _reducers = __webpack_require__(120);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -32693,7 +32693,7 @@ exports.typeOf = typeOf;
 
 
 
-var ReactIs = __webpack_require__(8);
+var ReactIs = __webpack_require__(9);
 var assign = __webpack_require__(6);
 
 var ReactPropTypesSecret = __webpack_require__(14);
@@ -34548,7 +34548,7 @@ function _assertThisInitialized(self) {
 "use strict";
 
 
-var reactIs = __webpack_require__(8);
+var reactIs = __webpack_require__(9);
 
 /**
  * Copyright 2015, Yahoo! Inc.
@@ -34752,7 +34752,7 @@ function () {
 
 "use strict";
 /* unused harmony export createConnect */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_esm_extends__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_esm_extends__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__babel_runtime_helpers_esm_objectWithoutPropertiesLoose__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_connectAdvanced__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_shallowEqual__ = __webpack_require__(81);
@@ -35531,7 +35531,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* unused harmony export wrapMergePropsFunc */
 /* unused harmony export whenMergePropsIsFunction */
 /* unused harmony export whenMergePropsIsOmitted */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_esm_extends__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_runtime_helpers_esm_extends__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_verifyPlainObject__ = __webpack_require__(37);
 
 
@@ -35718,7 +35718,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(7);
 
-var _reactRedux = __webpack_require__(10);
+var _reactRedux = __webpack_require__(11);
 
 var _Main_Page = __webpack_require__(103);
 
@@ -36050,9 +36050,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(10);
+var _reactRedux = __webpack_require__(11);
 
-var _events = __webpack_require__(11);
+var _events = __webpack_require__(8);
 
 var _pagesAC = __webpack_require__(12);
 
@@ -36692,7 +36692,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactRedux = __webpack_require__(10);
+var _reactRedux = __webpack_require__(11);
 
 var _Info = __webpack_require__(111);
 
@@ -36702,9 +36702,13 @@ var _AddCard = __webpack_require__(113);
 
 var _AddCard2 = _interopRequireDefault(_AddCard);
 
-var _events = __webpack_require__(11);
+var _Image = __webpack_require__(115);
 
-__webpack_require__(115);
+var _Image2 = _interopRequireDefault(_Image);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(117);
 
 var _pagesAC = __webpack_require__(12);
 
@@ -36741,7 +36745,9 @@ var PageInfo = function (_React$PureComponent) {
       data: _this.props.data,
       pagination: false,
       numberItem: 0,
-      numberPage: 0
+      numberPage: 0,
+      img: false,
+      imgUrl: ''
 
     }, _this.componentWillUnmount = function () {
 
@@ -36750,6 +36756,12 @@ var PageInfo = function (_React$PureComponent) {
       _events.events.addListener('Cancel', _this.cancel);
       _events.events.addListener('ChangeCard', _this.changeCard);
       _events.events.addListener('CancelAdd', _this.cancelAdd);
+      _events.events.addListener('CloseImg', _this.closeImg);
+      _events.events.addListener('ShowImg', _this.showImg);
+    }, _this.showImg = function (value, url) {
+      _this.setState({ img: value, imgUrl: url });
+    }, _this.closeImg = function (value) {
+      _this.setState({ img: value });
     }, _this.disabledDelete = function (value) {
       _this.setState({ disabledDelete: value });
     }, _this.editCard = function (state, id) {
@@ -36799,7 +36811,8 @@ var PageInfo = function (_React$PureComponent) {
       _events.events.addListener('Cancel', this.cancel);
 
       _events.events.addListener('CancelAdd', this.cancelAdd);
-
+      _events.events.addListener('CloseImg', this.closeImg);
+      _events.events.addListener('ShowImg', this.showImg);
       if (this.props.pageId == 'A') {
         this.setState({ page: 'pageA' });
       }
@@ -36817,11 +36830,13 @@ var PageInfo = function (_React$PureComponent) {
 
       var info = void 0;
       var pagination = void 0;
+      var image = '';
 
       if (this.state.page) {
         info = this.state.data[this.state.page].map(function (i) {
           var cardState = void 0;if (_this2.state.cardEdit == i.id && _this2.state.cardState == 2) cardState = 2;else cardState = 1;return _react2.default.createElement(_Info2.default, { key: i.id, cardState: cardState, info: i, page: _this2.state.page, disabled: _this2.state.changeCard, disabledDelete: _this2.state.disabledDelete });
         });
+        if (this.state.img) image = _react2.default.createElement(_Image2.default, { src: this.state.imgUrl });
         if (this.state.pagination) {
           var numberH = [];
           for (var i = 1; i <= Math.ceil(this.state.data[this.state.page].length / this.state.numberItem); i++) {
@@ -36885,6 +36900,12 @@ var PageInfo = function (_React$PureComponent) {
               _react2.default.createElement(
                 'td',
                 null,
+                ' ',
+                "Внешний вид"
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
                 "Описание"
               ),
               _react2.default.createElement(
@@ -36932,6 +36953,11 @@ var PageInfo = function (_React$PureComponent) {
           'div',
           null,
           newCard
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          image
         )
       );
     }
@@ -36967,7 +36993,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _events = __webpack_require__(11);
+var _events = __webpack_require__(8);
 
 var _reactRouterDom = __webpack_require__(7);
 
@@ -36998,14 +37024,19 @@ var Info = function (_React$PureComponent) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Info.__proto__ || Object.getPrototypeOf(Info)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       name: _this.props.info.name,
       description: _this.props.info.description,
+      url: _this.props.info.url,
       info: _this.props.info,
-      newCard: { id: _this.props.info.id, name: _this.props.info.name, description: _this.props.info.description },
+      newCard: { id: _this.props.info.id, name: _this.props.info.name, url: _this.props.info.url, description: _this.props.info.description },
       validName: '',
+      validUrl: '',
       validDescr: '',
       change: false,
       className: ''
-    }, _this.newName = null, _this.newDescription = null, _this.setName = function (ref) {
+
+    }, _this.newName = null, _this.newDescription = null, _this.newUrl = null, _this.setName = function (ref) {
       _this.newName = ref;
+    }, _this.setUrl = function (ref) {
+      _this.newUrl = ref;
     }, _this.setDescription = function (ref) {
       _this.newDescription = ref;
     }, _this.setNewText = function () {
@@ -37017,9 +37048,14 @@ var Info = function (_React$PureComponent) {
         var _newText = _this.newName.value;
         _this.setState({ name: _newText });
       }
+      if (_this.newUrl) {
+        var _newText2 = _this.newUrl.value;
+        _this.setState({ url: _newText2 });
+      }
       var newCard = _this.state.newCard;
       newCard.description = _this.newDescription.value;
       newCard.name = _this.newName.value;
+      newCard.url = _this.newUrl.value;
 
       _this.setState({ newCard: newCard });
       _events.events.emit('SaveCard', _this.state.newCard, _this.props.page);
@@ -37056,12 +37092,20 @@ var Info = function (_React$PureComponent) {
       } else {
         _this.setState({ validName: '' });
       }
+    }, _this.validUrl = function (EO) {
+      if (!EO.target.value) {
+        _this.setState({ validUrl: 'Пожалуйста, введите URL' });
+      } else {
+        _this.setState({ validUrl: '' });
+      }
     }, _this.validDescr = function (EO) {
       if (!EO.target.value) {
         _this.setState({ validDescr: 'Пожалуйста, введите описание' });
       } else {
         _this.setState({ validDescr: '' });
       }
+    }, _this.showImg = function () {
+      _events.events.emit('ShowImg', true, _this.state.url);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -37076,6 +37120,11 @@ var Info = function (_React$PureComponent) {
           'td',
           null,
           this.state.info.name
+        ),
+        _react2.default.createElement(
+          'td',
+          null,
+          _react2.default.createElement('img', { className: 'View', src: this.state.info.url, onClick: this.showImg })
         ),
         _react2.default.createElement(
           'td',
@@ -37096,6 +37145,11 @@ var Info = function (_React$PureComponent) {
           'td',
           null,
           _react2.default.createElement('input', { className: 'Edit', type: 'text', defaultValue: this.state.info.name, ref: this.setName, onBlur: this.validName, onChange: this.onChange })
+        ),
+        _react2.default.createElement(
+          'td',
+          null,
+          _react2.default.createElement('textarea', { className: 'Edit', defaultValue: this.state.info.url, ref: this.setUrl, onBlur: this.validUrl, onChange: this.onChange })
         ),
         _react2.default.createElement(
           'td',
@@ -37120,6 +37174,11 @@ var Info = function (_React$PureComponent) {
             'span',
             { className: 'Valid' },
             this.state.validDescr
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'Valid' },
+            this.state.validUrl
           )
         ),
         _react2.default.createElement(_reactRouterDom.Prompt, {
@@ -37174,7 +37233,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 __webpack_require__(114);
 
-var _events = __webpack_require__(11);
+var _events = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37200,19 +37259,23 @@ var AddCard = function (_React$PureComponent) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AddCard.__proto__ || Object.getPrototypeOf(AddCard)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       disabled: _this.props.disabled,
-      newCard: { id: _this.props.id, name: '', description: '' },
-      validName: 'Пожалуйста, введите значение',
-      validDescr: 'Пожалуйста, введите значение',
+      newCard: { id: _this.props.id, name: '', url: '', description: '' },
+      validName: 'Пожалуйста, введите название',
+      validUrl: 'Пожалуйста, введите URL',
+      validDescr: 'Пожалуйста, введите описание',
       change: false
 
-    }, _this.newDescription = null, _this.newName = null, _this.setNewDescription = function (ref) {
+    }, _this.newDescription = null, _this.newName = null, _this.newUrl = null, _this.setNewDescription = function (ref) {
       _this.newDescription = ref;
     }, _this.setNewName = function (ref) {
       _this.newName = ref;
+    }, _this.setNewUrl = function (ref) {
+      _this.newUrl = ref;
     }, _this.setNewText = function () {
 
       var newCard = _this.state.newCard;
       newCard.description = _this.newDescription.value;
+      newCard.url = _this.newUrl.value;
       newCard.name = _this.newName.value;
 
       _this.setState({ newCard: newCard });
@@ -37229,15 +37292,23 @@ var AddCard = function (_React$PureComponent) {
       } else _events.events.emit('CancelAdd', false);
     }, _this.validName = function (EO) {
       if (!EO.target.value) {
-        _this.setState({ validName: 'Пожалуйста, введите значение' });
+        _this.setState({ validName: 'Пожалуйста, введите название' });
         _this.setState({ disabled: true });
       } else {
         _this.setState({ validName: '' });
         _this.setState({ disabled: false });
       }
+    }, _this.validUrl = function (EO) {
+      if (!EO.target.value) {
+        _this.setState({ validUrl: 'Пожалуйста, введите URL' });
+        _this.setState({ disabled: true });
+      } else {
+        _this.setState({ validUrl: '' });
+        _this.setState({ disabled: false });
+      }
     }, _this.validDescr = function (EO) {
       if (!EO.target.value) {
-        _this.setState({ validDescr: 'Пожалуйста, введите значение' });
+        _this.setState({ validDescr: 'Пожалуйста, введите описание' });
         _this.setState({ disabled: true });
       } else {
         _this.setState({ validDescr: '' });
@@ -37300,6 +37371,29 @@ var AddCard = function (_React$PureComponent) {
                 _react2.default.createElement(
                   'td',
                   null,
+                  'Картинка'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'NewUrl' },
+                  _react2.default.createElement('textarea', { className: 'NewUrl', defaultValue: '', ref: this.setNewUrl, onBlur: this.validUrl, onChange: this.onChange })
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'ValText' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'Valid' },
+                    this.state.validUrl
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  null,
                   'Описание: '
                 ),
                 _react2.default.createElement(
@@ -37345,12 +37439,91 @@ exports.default = AddCard;
 
 /***/ }),
 /* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _events = __webpack_require__(8);
+
+__webpack_require__(116);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Image = function (_React$PureComponent) {
+    _inherits(Image, _React$PureComponent);
+
+    function Image() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Image);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Image.__proto__ || Object.getPrototypeOf(Image)).call.apply(_ref, [this].concat(args))), _this), _this.closeImg = function () {
+            _events.events.emit('CloseImg', false);
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Image, [{
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'Img' },
+                _react2.default.createElement('input', { className: 'CloseImg', onClick: this.closeImg, type: 'text', defaultValue: 'Close' }),
+                _react2.default.createElement('img', { src: this.props.src })
+            );
+        }
+    }]);
+
+    return Image;
+}(_react2.default.PureComponent);
+
+Image.propTypes = {
+    src: _propTypes2.default.string
+};
+exports.default = Image;
+
+/***/ }),
+/* 116 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 116 */
+/* 117 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37372,7 +37545,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(7);
 
-__webpack_require__(117);
+__webpack_require__(119);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37418,13 +37591,13 @@ var PagesLinks = function (_React$Component) {
 exports.default = PagesLinks;
 
 /***/ }),
-/* 117 */
+/* 119 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 118 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37436,7 +37609,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(20);
 
-var _pagesReducer = __webpack_require__(119);
+var _pagesReducer = __webpack_require__(121);
 
 var _pagesReducer2 = _interopRequireDefault(_pagesReducer);
 
@@ -37450,7 +37623,7 @@ var combinedReducer = (0, _redux.combineReducers)({
 exports.default = combinedReducer;
 
 /***/ }),
-/* 119 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

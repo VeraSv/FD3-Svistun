@@ -12,9 +12,10 @@ class AddCard extends React.PureComponent {
   
     state = {
      disabled:this.props.disabled,
-        newCard:{id:this.props.id, name:'', description:''},
-        validName:'Пожалуйста, введите значение',
-        validDescr:'Пожалуйста, введите значение',
+        newCard:{id:this.props.id, name:'', url:'', description:''},
+        validName:'Пожалуйста, введите название',
+        validUrl:'Пожалуйста, введите URL',
+        validDescr:'Пожалуйста, введите описание',
         change:false,
       
        
@@ -22,6 +23,7 @@ class AddCard extends React.PureComponent {
    
       newDescription=null;
       newName=null;
+      newUrl=null;
       
       setNewDescription=(ref)=>{
       this.newDescription=ref
@@ -32,11 +34,17 @@ class AddCard extends React.PureComponent {
         
         }
 
+        setNewUrl=(ref)=>{
+          this.newUrl=ref
+          
+          }
+
       setNewText=()=>{
 
 
 var newCard=this.state.newCard;
       newCard.description=this.newDescription.value;
+      newCard.url=this.newUrl.value;
       newCard.name=this.newName.value;
       
       this.setState({newCard:newCard})
@@ -57,7 +65,7 @@ this.setState({change:false})
 
       validName=(EO)=>{
         if(!EO.target.value) {
-         this.setState({validName:'Пожалуйста, введите значение'});
+         this.setState({validName:'Пожалуйста, введите название'});
           this.setState({disabled:true})
         } else {
             this.setState({validName:''});
@@ -66,9 +74,20 @@ this.setState({change:false})
        
       }
 
+      validUrl=(EO)=>{
+        if(!EO.target.value) {
+         this.setState({validUrl:'Пожалуйста, введите URL'});
+          this.setState({disabled:true})
+        } else {
+            this.setState({validUrl:''});
+            this.setState({disabled:false})
+        }
+       
+      }
+
       validDescr=(EO)=>{
         if(!EO.target.value) {
-         this.setState({validDescr:'Пожалуйста, введите значение'});
+         this.setState({validDescr:'Пожалуйста, введите описание'});
          this.setState({disabled:true})
         } else {
             this.setState({validDescr:''});
@@ -89,6 +108,7 @@ this.setState({change:false})
          <table className='NewCard' >
            <tbody>
            <tr><td>{'Название: '}</td><td  className={'NewName'}><input className={'NewName'} type={'text'} defaultValue='' ref={this.setNewName} onBlur={this.validName} onChange={this.onChange}/></td><td className='ValText'><span className='Valid'>{this.state.validName}</span></td></tr>
+       <tr><td>{'Картинка'}</td><td className={'NewUrl'}><textarea className={'NewUrl'} defaultValue='' ref={this.setNewUrl} onBlur={this.validUrl} onChange={this.onChange}/></td><td className='ValText'><span className='Valid'>{this.state.validUrl}</span></td></tr>
              <tr><td>{'Описание: '}</td><td  className={'NewText'}><textarea  className={'NewText'}  defaultValue='' ref={this.setNewDescription} onBlur={this.validDescr} onChange={this.onChange}/></td><td className='ValText'><span className='Valid'>{this.state.validDescr}</span></td></tr>
              
            </tbody>

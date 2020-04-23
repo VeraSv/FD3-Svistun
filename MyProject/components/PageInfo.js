@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Info from './Info';
 import AddCard from './AddCard'
+import Image from './Image';
 import {events} from './events';
 import './PageInfo.css';
 
@@ -26,7 +27,9 @@ class PageInfo extends React.PureComponent {
    data:this.props.data,
    pagination:false,
    numberItem:0,
-   numberPage:0
+   numberPage:0,
+   img:false,
+   imgUrl:''
    
   }
  
@@ -37,7 +40,8 @@ class PageInfo extends React.PureComponent {
      events.addListener('Cancel',this.cancel);
      events.addListener('ChangeCard',this.changeCard);
      events.addListener('CancelAdd',this.cancelAdd);
-     
+     events.addListener('CloseImg',this.closeImg);
+     events.addListener('ShowImg',this.showImg);
    };
    
    componentDidMount() {
@@ -47,12 +51,20 @@ class PageInfo extends React.PureComponent {
     events.addListener('Cancel',this.cancel);
     
     events.addListener('CancelAdd',this.cancelAdd);
-  
+    events.addListener('CloseImg',this.closeImg);
+    events.addListener('ShowImg',this.showImg);
     if(this.props.pageId=='A'){this.setState({page:'pageA'})}
     if(this.props.pageId=='Б'){this.setState({page:'pageB'})}
     if(this.props.pageId=='В'){this.setState({page:'pageV'})}
    
  }
+
+ showImg=(value,url)=>{
+  this.setState({img:value,imgUrl:url})
+ }
+ closeImg=(value)=>{
+  this.setState({img:value})
+}
 
  disabledDelete=(value)=>{
    this.setState({disabledDelete:value})
@@ -122,9 +134,12 @@ inputSort=null;
    
     let info;
     let pagination;
+    var image='';
+      
     
        if(this.state.page) {
          info=this.state.data[this.state.page].map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info  key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>});
+         if(this.state.img) image= <Image src={this.state.imgUrl}/>
          if(this.state.pagination)  {
           let numberH=[];
           for(let i=1; i<=Math.ceil(this.state.data[this.state.page].length / this.state.numberItem); i++) {
@@ -155,6 +170,7 @@ inputSort=null;
        <tbody>
         <tr className='title'  key='title'>
          <td> {"Название"}</td>
+         <td> {"Внешний вид"}</td>
         <td>{"Описание"}</td>
          
     <td>{"Control"}</td>
@@ -174,6 +190,7 @@ inputSort=null;
 
     </div>
       <div>{newCard}</div>
+    <div>{image}</div>
        
       </div>
     )

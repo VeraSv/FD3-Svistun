@@ -39,7 +39,14 @@ width: 55px;
 .SaveEdit, .CancelEdit {
     width: 55px;
 }
+ .View {
+     width: 210px;
+     height: 150px
+ }
 
+ .View:hover {
+     cursor: pointer;
+ }
   
  .AddCard {
     width: 100%;
@@ -74,6 +81,13 @@ height: 30px;
 width: 308px;
 }
 
+.NewUrl {
+    font-style: italic;
+
+height: 100px;
+width: 308px;
+}
+
 .NewText {
     font-style: italic;
 
@@ -99,6 +113,29 @@ margin-bottom: 10px;
      
     width: 200px;
     }
+}.CloseImg {
+    cursor: pointer;
+    width: 40px;
+    margin-left: 605px;
+}
+
+.Img {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Img img {
+    position: relative;
+    text-align: center;
+    width: 650px;
+    height:550px;
 }body {
     background: rgba(125, 248, 177, 0.1) ;
    background-position: right top;

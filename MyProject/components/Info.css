@@ -33,6 +33,13 @@ width: 55px;
 .SaveEdit, .CancelEdit {
     width: 55px;
 }
+ .View {
+     width: 210px;
+     height: 150px
+ }
 
+ .View:hover {
+     cursor: pointer;
+ }
   
  
