@@ -6,10 +6,10 @@
 }
 .Deleted * {
     
-        transition-duration: 1s;
-        -webkit-transition-timing-function: linear; 
-        transition-timing-function: linear;
-        overflow: hidden;
+    transition-duration: 1s;
+    -webkit-transition-timing-function: linear; 
+    transition-timing-function: linear;
+    overflow: hidden;
     height: 0px;
     opacity: 0;
     font-size: 0;
@@ -18,6 +18,10 @@
     border-collapse: none;
     box-sizing:none;
     
+}
+
+.Deleted img {
+    height: 0;
 }
 
 .Deleted {
@@ -29,8 +33,9 @@
 }
 
 .InputEdit, .Delete {
-width: 55px;
+  width: 55px;
 }
+
 
 .Delete {
     padding-left: 3px;
@@ -39,14 +44,15 @@ width: 55px;
 .SaveEdit, .CancelEdit {
     width: 55px;
 }
- .View {
-     width: 210px;
-     height: 150px
- }
 
- .View:hover {
-     cursor: pointer;
- }
+.View {
+    width: 210px;
+    height: 150px
+}
+
+.View:hover {
+    cursor: pointer;
+}
   
  .AddCard {
     width: 100%;
@@ -66,52 +72,45 @@ width: 55px;
     border-radius: 4px;
     position: relative;
     text-align: center;
-  padding: 10px;
+    padding: 10px;
 }
 
 .NewCard td {
-
-    height: 30px;
+  height: 30px;
 }
 
 .NewName {
-    font-style: italic;
-
-height: 30px;
-width: 308px;
+ font-style: italic;
+ height: 30px;
+ width: 308px;
 }
 
 .NewUrl {
-    font-style: italic;
-
-height: 100px;
-width: 308px;
+ font-style: italic;
+ height: 100px;
+ width: 308px;
 }
 
 .NewText {
-    font-style: italic;
-
-height: 300px;
-width: 308px;
+ font-style: italic;
+ height: 300px;
+ width: 308px;
 
 }
 
 .Valid {
-    display: block;
-    color: red;
+  display: block;
+  color: red;
 }
 
-
-
 .SaveAdd, .CancelAdd {
-margin-top: 10px;
-margin-bottom: 10px; 
+  margin-top: 10px;
+  margin-bottom: 10px; 
 }
 
 @media (max-width: 767px) {
-    .NewName, .NewText {
-     
-    width: 200px;
+  .NewName, .NewText {
+      width: 200px;
     }
 }.CloseImg {
     cursor: pointer;
@@ -163,8 +162,6 @@ margin-bottom: 10px;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     border-collapse: collapse;
-    height: 30px;
-   
 }
 
 
@@ -173,10 +170,10 @@ margin-bottom: 10px;
     border-bottom:2px solid black
 }
 .Edit {
-font-style: italic;
-box-sizing: border-box;
-height: 230px;
-width: 208px;
+ font-style: italic;
+ box-sizing: border-box;
+ height: 230px;
+ width: 208px;
 }
 
 .Description {
@@ -195,11 +192,11 @@ width: 208px;
 
 .List {
     display: flex;
-list-style-type: none;
+    list-style-type: none;
 }
 
 .List li a {
-    margin-right: 10px;
+  margin-right: 10px;
   color: blue;
   cursor: pointer;
   

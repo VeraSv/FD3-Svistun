@@ -16,51 +16,44 @@
     border-radius: 4px;
     position: relative;
     text-align: center;
-  padding: 10px;
+    padding: 10px;
 }
 
 .NewCard td {
-
-    height: 30px;
+  height: 30px;
 }
 
 .NewName {
-    font-style: italic;
-
-height: 30px;
-width: 308px;
+ font-style: italic;
+ height: 30px;
+ width: 308px;
 }
 
 .NewUrl {
-    font-style: italic;
-
-height: 100px;
-width: 308px;
+ font-style: italic;
+ height: 100px;
+ width: 308px;
 }
 
 .NewText {
-    font-style: italic;
-
-height: 300px;
-width: 308px;
+ font-style: italic;
+ height: 300px;
+ width: 308px;
 
 }
 
 .Valid {
-    display: block;
-    color: red;
+  display: block;
+  color: red;
 }
 
-
-
 .SaveAdd, .CancelAdd {
-margin-top: 10px;
-margin-bottom: 10px; 
+  margin-top: 10px;
+  margin-bottom: 10px; 
 }
 
 @media (max-width: 767px) {
-    .NewName, .NewText {
-     
-    width: 200px;
+  .NewName, .NewText {
+      width: 200px;
     }
 }

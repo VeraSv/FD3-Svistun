@@ -1,9 +1,9 @@
 .Deleted * {
     
-        transition-duration: 1s;
-        -webkit-transition-timing-function: linear; 
-        transition-timing-function: linear;
-        overflow: hidden;
+    transition-duration: 1s;
+    -webkit-transition-timing-function: linear; 
+    transition-timing-function: linear;
+    overflow: hidden;
     height: 0px;
     opacity: 0;
     font-size: 0;
@@ -12,6 +12,10 @@
     border-collapse: none;
     box-sizing:none;
     
+}
+
+.Deleted img {
+    height: 0;
 }
 
 .Deleted {
@@ -23,8 +27,9 @@
 }
 
 .InputEdit, .Delete {
-width: 55px;
+  width: 55px;
 }
+
 
 .Delete {
     padding-left: 3px;
@@ -33,13 +38,14 @@ width: 55px;
 .SaveEdit, .CancelEdit {
     width: 55px;
 }
- .View {
-     width: 210px;
-     height: 150px
- }
 
- .View:hover {
-     cursor: pointer;
- }
+.View {
+    width: 210px;
+    height: 150px
+}
+
+.View:hover {
+    cursor: pointer;
+}
   
  

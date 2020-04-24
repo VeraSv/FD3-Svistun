@@ -35,7 +35,31 @@ exports[`работа AddCard 1`] = `
             <span
               className="Valid"
             >
-              Пожалуйста, введите значение
+              Пожалуйста, введите название
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Картинка
+          </td>
+          <td
+            className="NewUrl"
+          >
+            <textarea
+              className="NewUrl"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите URL
             </span>
           </td>
         </tr>
@@ -59,7 +83,7 @@ exports[`работа AddCard 1`] = `
             <span
               className="Valid"
             >
-              Пожалуйста, введите значение
+              Пожалуйста, введите описание
             </span>
           </td>
         </tr>
@@ -117,7 +141,31 @@ exports[`работа AddCard 2`] = `
             <span
               className="Valid"
             >
-              Пожалуйста, введите значение
+              Пожалуйста, введите название
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Картинка
+          </td>
+          <td
+            className="NewUrl"
+          >
+            <textarea
+              className="NewUrl"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите URL
             </span>
           </td>
         </tr>
@@ -141,7 +189,7 @@ exports[`работа AddCard 2`] = `
             <span
               className="Valid"
             >
-              Пожалуйста, введите значение
+              Пожалуйста, введите описание
             </span>
           </td>
         </tr>
@@ -199,7 +247,31 @@ exports[`работа AddCard 3`] = `
             <span
               className="Valid"
             >
-              Пожалуйста, введите значение
+              Пожалуйста, введите название
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Картинка
+          </td>
+          <td
+            className="NewUrl"
+          >
+            <textarea
+              className="NewUrl"
+              defaultValue=""
+              onBlur={[Function]}
+              onChange={[Function]}
+            />
+          </td>
+          <td
+            className="ValText"
+          >
+            <span
+              className="Valid"
+            >
+              Пожалуйста, введите URL
             </span>
           </td>
         </tr>
@@ -223,7 +295,7 @@ exports[`работа AddCard 3`] = `
             <span
               className="Valid"
             >
-              Пожалуйста, введите значение
+              Пожалуйста, введите описание
             </span>
           </td>
         </tr>

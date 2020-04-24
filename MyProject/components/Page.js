@@ -11,16 +11,11 @@ class Page extends React.PureComponent {
   render() {
 
     return (
-        <div className='Nav'>
-        
-    <NavLink to={"/page/"+this.props.point} className="ElemList" >{this.props.point}</NavLink>
-       
+      <div className='Nav'>
+       <NavLink to={"/page/"+this.props.point} className="ElemList" >{this.props.point}</NavLink>
       </div>
-    )
-    ;
-
+    );
   }
-
 }
 
 export default Page;

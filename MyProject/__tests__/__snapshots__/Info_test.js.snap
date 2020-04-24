@@ -8,6 +8,13 @@ exports[`работа Info 1`] = `
   <td>
     Абелия
   </td>
+  <td>
+    <img
+      className="View"
+      onClick={[Function]}
+      src={undefined}
+    />
+  </td>
   <td
     className="Description"
   >
@@ -40,6 +47,13 @@ exports[`работа Info 2`] = `
   <td>
     Абелия
   </td>
+  <td>
+    <img
+      className="View"
+      onClick={[Function]}
+      src={undefined}
+    />
+  </td>
   <td
     className="Description"
   >
@@ -71,6 +85,13 @@ exports[`работа Info 3`] = `
 >
   <td>
     Абелия
+  </td>
+  <td>
+    <img
+      className="View"
+      onClick={[Function]}
+      src={undefined}
+    />
   </td>
   <td
     className="Description"

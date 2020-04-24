@@ -16,8 +16,8 @@ class Image extends React.PureComponent {
       
         return( 
             <div className='Img'>
-                <input className={'CloseImg'} onClick={this.closeImg} type={'text'} defaultValue={'Close'}></input>
-                <img src={this.props.src}/>
+              <input className={'CloseImg'} onClick={this.closeImg} type={'text'} defaultValue={'Close'}></input>
+              <img src={this.props.src}/>
             </div>
         )
     }
