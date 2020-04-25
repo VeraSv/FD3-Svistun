@@ -6,12 +6,9 @@ body {
    
 }  
 
-@media (max-width: 767px) {
-    body {
-        background-size: 0%;    
-    } 
 
-    
+.Search {
+    font-size: 23px;
 }
 
 .Table {
@@ -25,13 +22,22 @@ body {
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     border-collapse: collapse;
+    font-size: 23px;
 }
 
+input, textarea  {
+    font-size: 18px;
+}
 
 .title td{
     font-weight: 700;
     border-bottom:2px solid black
 }
+
+.NumberPage {
+    font-size: 18px;
+}
+
 .Edit {
  font-style: italic;
  box-sizing: border-box;
@@ -51,6 +57,7 @@ body {
 
 .NewProduct {
     margin-top: 10px;
+    font-size: 18px;
 }
 
 .List {
@@ -69,3 +76,38 @@ body {
     color: red;
 }
 
+select, select option {
+    font-size: 18px;
+}
+
+
+@media (max-width: 992px) {
+    body {
+        background-size: 0%;  
+         
+    } 
+
+    .Search {
+        font-size: 50px;
+    }
+
+    .title td {
+        font-size: 35px;
+    }
+
+    input, textarea  {
+        font-size: 45px;
+    }
+ 
+    select, select option {
+        font-size: 45px;
+    }
+
+    .NewProduct {
+        font-size: 45px;
+    }
+
+    .NumberPage {
+        font-size: 45px;
+    }
+}

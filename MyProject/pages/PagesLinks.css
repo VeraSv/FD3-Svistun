@@ -1,8 +1,15 @@
 .PageLink {
     color: black;
     margin-right: 10px;
+    font-size: 25px;
 }
 
 .ActivePageLink {
     font-weight: bold;
+}
+
+@media (max-width: 992px) {
+    .PageLink {
+    font-size: 50px;
+    }
 }

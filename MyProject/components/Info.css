@@ -27,7 +27,7 @@
 }
 
 .InputEdit, .Delete {
-  width: 55px;
+  width: 60px;
 }
 
 
@@ -36,7 +36,7 @@
 }
 
 .SaveEdit, .CancelEdit {
-    width: 55px;
+    width: 70px;
 }
 
 .View {
@@ -49,3 +49,13 @@
 }
   
  
+@media (max-width: 992px) {
+
+    input {
+     display: block;
+    }
+
+   .InputEdit, .Delete {
+     width: 135px;
+    }
+}

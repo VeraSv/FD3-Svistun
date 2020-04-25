@@ -1,4 +1,5 @@
 import React from 'react';
+import './Main_Page.css'
 
 class Main_Page extends React.PureComponent {
    
@@ -7,7 +8,7 @@ class Main_Page extends React.PureComponent {
     return (
       <div>
         <h1>Справочник растений</h1>
-        Добро пожаловать!
+        <span className='Main'>{'Добро пожаловать!'}</span> 
       </div>
     );
   }

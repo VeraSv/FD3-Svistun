@@ -1532,7 +1532,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.events = undefined;
 
-var _events = __webpack_require__(109);
+var _events = __webpack_require__(110);
 
 var events = new _events.EventEmitter();
 
@@ -3751,11 +3751,11 @@ var _PagesRouter = __webpack_require__(102);
 
 var _PagesRouter2 = _interopRequireDefault(_PagesRouter);
 
-var _PagesLinks = __webpack_require__(118);
+var _PagesLinks = __webpack_require__(119);
 
 var _PagesLinks2 = _interopRequireDefault(_PagesLinks);
 
-var _reducers = __webpack_require__(120);
+var _reducers = __webpack_require__(121);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -35718,11 +35718,11 @@ var _Main_Page = __webpack_require__(103);
 
 var _Main_Page2 = _interopRequireDefault(_Main_Page);
 
-var _Page_List = __webpack_require__(104);
+var _Page_List = __webpack_require__(105);
 
 var _Page_List2 = _interopRequireDefault(_Page_List);
 
-var _Page_Info = __webpack_require__(108);
+var _Page_Info = __webpack_require__(109);
 
 var _Page_Info2 = _interopRequireDefault(_Page_Info);
 
@@ -35781,6 +35781,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+__webpack_require__(104);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35810,7 +35812,11 @@ var Main_Page = function (_React$PureComponent) {
           null,
           '\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u0438\u043A \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u0439'
         ),
-        '\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C!'
+        _react2.default.createElement(
+          'span',
+          { className: 'Main' },
+          'Добро пожаловать!'
+        )
       );
     }
   }]);
@@ -35822,6 +35828,12 @@ exports.default = Main_Page;
 
 /***/ }),
 /* 104 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35837,7 +35849,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Encyclopedia = __webpack_require__(105);
+var _Encyclopedia = __webpack_require__(106);
 
 var _Encyclopedia2 = _interopRequireDefault(_Encyclopedia);
 
@@ -35872,7 +35884,7 @@ var Page_List = function (_React$PureComponent) {
 exports.default = Page_List;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35888,7 +35900,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Page = __webpack_require__(106);
+var _Page = __webpack_require__(107);
 
 var _Page2 = _interopRequireDefault(_Page);
 
@@ -35949,7 +35961,7 @@ var Encyclopedia = function (_React$PureComponent) {
 exports.default = Encyclopedia;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35971,7 +35983,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(7);
 
-__webpack_require__(107);
+__webpack_require__(108);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36015,13 +36027,13 @@ Page.propTypes = {
 exports.default = Page;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36045,7 +36057,7 @@ var _events = __webpack_require__(8);
 
 var _pagesAC = __webpack_require__(37);
 
-var _PageInfo = __webpack_require__(110);
+var _PageInfo = __webpack_require__(111);
 
 var _PageInfo2 = _interopRequireDefault(_PageInfo);
 
@@ -36194,7 +36206,7 @@ var mapStateToProps = function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Page_Info);
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36647,7 +36659,7 @@ function unwrapListeners(arr) {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36669,21 +36681,21 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Info = __webpack_require__(111);
+var _Info = __webpack_require__(112);
 
 var _Info2 = _interopRequireDefault(_Info);
 
-var _AddCard = __webpack_require__(113);
+var _AddCard = __webpack_require__(114);
 
 var _AddCard2 = _interopRequireDefault(_AddCard);
 
-var _Image = __webpack_require__(115);
+var _Image = __webpack_require__(116);
 
 var _Image2 = _interopRequireDefault(_Image);
 
 var _events = __webpack_require__(8);
 
-__webpack_require__(117);
+__webpack_require__(118);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36847,7 +36859,7 @@ var PageInfo = function (_React$PureComponent) {
         _react2.default.createElement('br', null),
         _react2.default.createElement(
           'span',
-          null,
+          { className: 'Search' },
           'Поиск: '
         ),
         _react2.default.createElement('input', { type: 'text', defaultValue: '', ref: this.search, onChange: this.changeSearch }),
@@ -36895,7 +36907,7 @@ var PageInfo = function (_React$PureComponent) {
           _react2.default.createElement('br', null),
           _react2.default.createElement(
             'span',
-            null,
+            { className: 'NumberPage' },
             'Количество строк на странице: '
           ),
           _react2.default.createElement(
@@ -36942,7 +36954,7 @@ PageInfo.propTypes = {
 exports.default = PageInfo;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36966,7 +36978,7 @@ var _events = __webpack_require__(8);
 
 var _reactRouterDom = __webpack_require__(7);
 
-__webpack_require__(112);
+__webpack_require__(113);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37171,13 +37183,13 @@ Info.propTypes = {
 exports.default = Info;
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37197,7 +37209,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-__webpack_require__(114);
+__webpack_require__(115);
 
 var _events = __webpack_require__(8);
 
@@ -37393,13 +37405,13 @@ AddCard.propTypes = {
 exports.default = AddCard;
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37421,7 +37433,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _events = __webpack_require__(8);
 
-__webpack_require__(116);
+__webpack_require__(117);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37472,12 +37484,6 @@ Image.propTypes = {
 exports.default = Image;
 
 /***/ }),
-/* 116 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 117 */
 /***/ (function(module, exports) {
 
@@ -37485,6 +37491,12 @@ exports.default = Image;
 
 /***/ }),
 /* 118 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37506,7 +37518,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(7);
 
-__webpack_require__(119);
+__webpack_require__(120);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37552,13 +37564,13 @@ var PagesLinks = function (_React$Component) {
 exports.default = PagesLinks;
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37570,7 +37582,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(18);
 
-var _pagesReducer = __webpack_require__(121);
+var _pagesReducer = __webpack_require__(122);
 
 var _pagesReducer2 = _interopRequireDefault(_pagesReducer);
 
@@ -37584,7 +37596,7 @@ var combinedReducer = (0, _redux.combineReducers)({
 exports.default = combinedReducer;
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

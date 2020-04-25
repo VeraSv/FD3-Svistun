@@ -156,7 +156,7 @@ class PageInfo extends React.PureComponent {
     return (
       <div >
         <br />
-        <span>{'Поиск: '}</span>
+        <span className={'Search'}>{'Поиск: '}</span>
         <input type='text' defaultValue={''} ref={this.search} onChange={this.changeSearch}></input> 
         <table className='Table'>
          <tbody>
@@ -173,7 +173,7 @@ class PageInfo extends React.PureComponent {
        <div>
          <br />{pagination}
          <br />
-         <span>{'Количество строк на странице: '}</span>
+         <span className={'NumberPage'}>{'Количество строк на странице: '}</span>
          <select ref={this.selectPagination} onChange={this.changePagination}>
            <option value='All'>{'All'}</option> 
            <option value='5'>{'5'}</option>

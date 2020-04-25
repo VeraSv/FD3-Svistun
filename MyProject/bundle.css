@@ -1,10 +1,26 @@
-
+.Main {
+    font-size: 25px;
+}
 
 .Nav {
   margin:15px;
   display:inline-block;
+  font-size: 25px;
 }
-.Deleted * {
+
+.Component p {
+  font-size: 23px;
+}
+
+@media (max-width: 992px) {
+ .Nav {
+   font-size: 50px;
+ }
+ .Component p {
+  font-size: 45px;
+}
+
+}.Deleted * {
     
     transition-duration: 1s;
     -webkit-transition-timing-function: linear; 
@@ -33,7 +49,7 @@
 }
 
 .InputEdit, .Delete {
-  width: 55px;
+  width: 60px;
 }
 
 
@@ -42,7 +58,7 @@
 }
 
 .SaveEdit, .CancelEdit {
-    width: 55px;
+    width: 70px;
 }
 
 .View {
@@ -54,7 +70,17 @@
     cursor: pointer;
 }
   
- .AddCard {
+ 
+@media (max-width: 992px) {
+
+    input {
+     display: block;
+    }
+
+   .InputEdit, .Delete {
+     width: 135px;
+    }
+}.AddCard {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
@@ -66,6 +92,7 @@
 }
 
 .Form {
+  font-size: 18px;
     width: 550px;
     height: fit-content;
     background-color: white;
@@ -114,8 +141,9 @@
     }
 }.CloseImg {
     cursor: pointer;
-    width: 40px;
+    width: 50px;
     margin-left: 605px;
+    font-size: 18px;
 }
 
 .Img {
@@ -143,12 +171,9 @@
    
 }  
 
-@media (max-width: 767px) {
-    body {
-        background-size: 0%;    
-    } 
 
-    
+.Search {
+    font-size: 23px;
 }
 
 .Table {
@@ -162,13 +187,22 @@
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     border-collapse: collapse;
+    font-size: 23px;
 }
 
+input, textarea  {
+    font-size: 18px;
+}
 
 .title td{
     font-weight: 700;
     border-bottom:2px solid black
 }
+
+.NumberPage {
+    font-size: 18px;
+}
+
 .Edit {
  font-style: italic;
  box-sizing: border-box;
@@ -188,6 +222,7 @@
 
 .NewProduct {
     margin-top: 10px;
+    font-size: 18px;
 }
 
 .List {
@@ -206,13 +241,53 @@
     color: red;
 }
 
-.PageLink {
+select, select option {
+    font-size: 18px;
+}
+
+
+@media (max-width: 992px) {
+    body {
+        background-size: 0%;  
+         
+    } 
+
+    .Search {
+        font-size: 50px;
+    }
+
+    .title td {
+        font-size: 35px;
+    }
+
+    input, textarea  {
+        font-size: 45px;
+    }
+ 
+    select, select option {
+        font-size: 45px;
+    }
+
+    .NewProduct {
+        font-size: 45px;
+    }
+
+    .NumberPage {
+        font-size: 45px;
+    }
+}.PageLink {
     color: black;
     margin-right: 10px;
+    font-size: 25px;
 }
 
 .ActivePageLink {
     font-weight: bold;
 }
 
+@media (max-width: 992px) {
+    .PageLink {
+    font-size: 50px;
+    }
+}
 /*# sourceMappingURL=bundle.css.map*/
