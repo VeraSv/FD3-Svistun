@@ -48,14 +48,40 @@
     cursor: pointer;
 }
   
+.Edit {
+    font-style: italic;
+    box-sizing: border-box;
+    height: 230px;
+    width: 208px;
+   }
+   
+   .Description {
+       width: 460px;
+   }
+   
+   .Valid {
+       display: block;
+       color: red;
+   }
  
 @media (max-width: 992px) {
 
-    input {
+   .InputEdit, .Delete {
+     width: 135px;
      display: block;
     }
 
-   .InputEdit, .Delete {
-     width: 135px;
+    .Edit, .Description {
+       font-size: 18px;
     }
+       
+    .Description {
+        width: 450px;
+    }
+       
+    .SaveEdit, .CancelEdit {
+        width: 150px;
+        display: block;
+    }
+       
 }

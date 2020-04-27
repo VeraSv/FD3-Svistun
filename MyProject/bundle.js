@@ -36764,6 +36764,7 @@ var PageInfo = function (_React$PureComponent) {
     }, _this.setData = function () {
       var res = _extends({}, _this.props.data);
       if (_this.state.searchValue) {
+
         res[_this.state.page] = res[_this.state.page].filter(function (s) {
           var str = s.name.toLowerCase();return str.indexOf(_this.state.searchValue) != -1;
         });

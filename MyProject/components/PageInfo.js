@@ -98,6 +98,7 @@ class PageInfo extends React.PureComponent {
   setData=()=>{
     var res={...this.props.data};
     if(this.state.searchValue) {
+     
      res[this.state.page]=res[this.state.page].filter(s=>{var str=s.name.toLowerCase();return  str.indexOf(this.state.searchValue)!=-1})
     };
     this.setState({data:res}) 

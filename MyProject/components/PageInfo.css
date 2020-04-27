@@ -38,23 +38,6 @@ input, textarea  {
     font-size: 18px;
 }
 
-.Edit {
- font-style: italic;
- box-sizing: border-box;
- height: 230px;
- width: 208px;
-}
-
-.Description {
-    width: 460px;
-}
-
-.Valid {
-    display: block;
-    color: red;
-}
-
-
 .NewProduct {
     margin-top: 10px;
     font-size: 18px;
