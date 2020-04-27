@@ -185,6 +185,14 @@
     text-align: center;
     width: 650px;
     height:550px;
+}
+
+@media (max-width: 992px) {
+    .CloseImg {
+        width: 135px;
+        margin-left: 520px;
+        font-size: 45px;
+    }
 }body {
     background: rgba(125, 248, 177, 0.1) ;
    background-position: right top;
