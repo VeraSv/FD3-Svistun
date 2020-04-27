@@ -10,7 +10,7 @@ class Page_Info extends React.PureComponent {
     dataH:{}
   }
   componentWillUnmount = () => {
-    events.addListener('SaveCard',this.saveCard);
+   events.addListener('SaveCard',this.saveCard);
     events.addListener('DeleteClicked',this.delete);
     events.addListener('AddNewCard',this.addNewCard);
   };

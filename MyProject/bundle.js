@@ -36777,7 +36777,6 @@ var PageInfo = function (_React$PureComponent) {
       if (_this.select.value == 'All') _this.setState({ pagination: false });else {
         var v = Number.parseInt(_this.select.value);
         _this.setState({ pagination: true, numberItem: v, numberPage: 0 });
-        _events.events.emit('ChangePagination', true, v);
       }
     }, _this.clickPage = function (EO) {
       var n = Number.parseInt(EO.target.innerText);

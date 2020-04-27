@@ -116,7 +116,6 @@ class PageInfo extends React.PureComponent {
     else  {
       var v=Number.parseInt(this.select.value)
       this.setState({pagination:true, numberItem:v, numberPage:0});
-      events.emit('ChangePagination',true,v)
     }
   }
 
