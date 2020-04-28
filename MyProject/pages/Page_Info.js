@@ -9,6 +9,7 @@ class Page_Info extends React.PureComponent {
   state={
     dataH:{}
   }
+
   componentWillUnmount = () => {
    events.addListener('SaveCard',this.saveCard);
     events.addListener('DeleteClicked',this.delete);
@@ -20,6 +21,10 @@ class Page_Info extends React.PureComponent {
     events.addListener('DeleteClicked',this.delete);
     events.addListener('AddNewCard',this.addNewCard);
     this.props.dispatch( pagesLoadingAC() );
+    this.loadData();
+  }
+
+  loadData=()=> {
     var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
     let sp = new URLSearchParams();
     sp.append('f', 'READ');
@@ -99,6 +104,7 @@ class Page_Info extends React.PureComponent {
    this.setState({dataH:dataH},this.saveState)
   }
 
+  
   render() {
     if ( this.props.info.status<=1 )
     return "загрузка...";
@@ -107,9 +113,15 @@ class Page_Info extends React.PureComponent {
     return "ошибка загрузки данных";
 
     let pageId=this.props.match.params.clid;
+
+    let numPage=this.props.match.params.clid.slice(-1);
+    var numberPage=0;
+    var n=Number.parseInt(numPage);
+    if(n) numberPage=n;
+    
     
     return (
-     <PageInfo  pageId={pageId} {...this.props.info}/> 
+     <PageInfo  pageId={pageId} numberPage={numberPage} {...this.props.info}/> 
     );
   }
 }

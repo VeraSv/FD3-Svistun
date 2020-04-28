@@ -8,9 +8,9 @@ class Encyclopedia extends React.PureComponent {
     return (
       <div className="Component">
         <div className='List'>
-          {<Page point={'A'}/>}
-          {<Page point={'Б'}/>}
-          {<Page point={'В'}/>} 
+          {<Page point={'A'} page=''/>}
+          {<Page point={'Б'} page=''/>}
+          {<Page point={'В'} page=''/>} 
         </div>
         <p>{'Любой пользователь может редактировать статьи энциклопедии. Все правки сохраняются.'}</p>
         <p>{`Пользователи могут размещать статьи в энциклопедию растений.

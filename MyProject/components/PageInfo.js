@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Info from './Info';
 import AddCard from './AddCard'
 import Image from './Image';
+import Page from './Page'
 import {events} from './events';
 import './PageInfo.css';
 
@@ -10,10 +11,12 @@ class PageInfo extends React.PureComponent {
 
   static propTypes = {
     data:PropTypes.object,
-    pageId:PropTypes.string
+    pageId:PropTypes.string,
+    numberPage:PropTypes.number
   };
  
   state={
+    pageId:this.props.pageId,
    changeCard:false,
    disabledDelete:false,
    cardEdit:'',
@@ -22,13 +25,11 @@ class PageInfo extends React.PureComponent {
    page:'',
    searchValue:'',
    data:this.props.data,
-   pagination:false,
-   numberItem:0,
-   numberPage:0,
    img:false,
    imgUrl:''
   }
  
+
   componentWillUnmount = () => {
     events.addListener('DisabledDelete',this.disabledDelete);
     events.addListener('EditCard',this.editCard);
@@ -37,6 +38,9 @@ class PageInfo extends React.PureComponent {
     events.addListener('CancelAdd',this.cancelAdd);
     events.addListener('CloseImg',this.closeImg);
     events.addListener('ShowImg',this.showImg);
+   
+    this.setPage();
+    
   };
    
   componentDidMount() {
@@ -47,10 +51,18 @@ class PageInfo extends React.PureComponent {
     events.addListener('CancelAdd',this.cancelAdd);
     events.addListener('CloseImg',this.closeImg);
     events.addListener('ShowImg',this.showImg);
-    if(this.props.pageId=='A'){this.setState({page:'pageA'})}
-    if(this.props.pageId=='Б'){this.setState({page:'pageB'})}
-    if(this.props.pageId=='В'){this.setState({page:'pageV'})}
+   
+    this.setPage();
+   
   }
+
+setPage=()=> {
+  let page='';
+  if(this.props.numberPage) { page=this.props.pageId.slice(0,1); this.setState({pageId:page})}
+  if(this.props.pageId=='A'||page=='A'){this.setState({page:'pageA'})}
+  if(this.props.pageId=='Б'||page=='Б'){this.setState({page:'pageB'})}
+  if(this.props.pageId=='В'||page=='В'){this.setState({page:'pageV'})}
+}
 
   showImg=(value,url)=>{
    this.setState({img:value,imgUrl:url})
@@ -104,28 +116,10 @@ class PageInfo extends React.PureComponent {
     this.setState({data:res}) 
   }
 
-  select=null;
-
-  selectPagination=(ref)=> {
-    this.select=ref
-  }
-
-  changePagination=()=>{
-
-    if(this.select.value=='All') this.setState({pagination:false});
-    else  {
-      var v=Number.parseInt(this.select.value)
-      this.setState({pagination:true, numberItem:v, numberPage:0});
-    }
-  }
-
-  clickPage=(EO)=>{
-    var n=Number.parseInt(EO.target.innerText)
-    this.setState({numberPage:n})
-  }
-
-  render() {
   
+  render() {
+    
+
     let info;
     let pagination;
     var image='';
@@ -133,16 +127,16 @@ class PageInfo extends React.PureComponent {
     if(this.state.page) {
       info=this.state.data[this.state.page].map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info  key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>});
       if(this.state.img) image= <Image src={this.state.imgUrl}/>
-      if(this.state.pagination)  {
+      if(this.props.numberPage)  {
         let numberH=[];
-        for(let i=1; i<=Math.ceil(this.state.data[this.state.page].length / this.state.numberItem); i++) {
+        for(let i=1; i<=Math.ceil(this.state.data[this.state.page].length / 5); i++) {
           numberH.push(i)
         }
-        let number=numberH.map(n => {return <li key={this.state.page+n}><a onClick={this.clickPage} >{n}</a></li>})
-        if(this.state.numberPage<=1)info=info.slice(0,this.state.numberItem)
+        let number=numberH.map(n => {return <li key={this.state.page+n}><Page point={this.state.pageId+n} /></li>})
+        if(this.props.numberPage<=1)info=info.slice(0,5)
         else {
-          var prePage=this.state.numberItem*(this.state.numberPage-1);
-          var page=this.state.numberItem*this.state.numberPage
+          var prePage=5*(this.props.numberPage-1);
+          var page=5*this.props.numberPage
           info=info.slice(prePage,page)
         }
         pagination=<ul className='List'>{number}</ul> 
@@ -174,11 +168,10 @@ class PageInfo extends React.PureComponent {
          <br />{pagination}
          <br />
          <span className={'NumberPage'}>{'Количество строк на странице: '}</span>
-         <select ref={this.selectPagination} onChange={this.changePagination}>
-           <option value='All'>{'All'}</option> 
-           <option value='5'>{'5'}</option>
-           <option value='10'>{'10'}</option>
-         </select>
+         <Page point={this.state.pageId} page={'All'}></Page>
+           
+        <Page point={this.state.pageId+1} page={'5'}></Page>
+        
        </div>
        <div>{newCard}</div>
        <div>{image}</div>

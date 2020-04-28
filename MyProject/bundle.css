@@ -36,6 +36,10 @@
     
 }
 
+.Deleted td {
+    font-size: 0 !important;
+}
+
 .Deleted img {
     height: 0;
 }
