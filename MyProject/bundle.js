@@ -3737,7 +3737,7 @@ var Page = function (_React$PureComponent) {
         _react2.default.createElement(
           _reactRouterDom.NavLink,
           { to: "/page/" + this.props.point, className: 'ElemList' },
-          this.props.point.slice(-1)
+          this.props.point
         )
       );else return _react2.default.createElement(
         'div',
@@ -36198,9 +36198,9 @@ var Page_Info = function (_React$PureComponent) {
 
       var pageId = this.props.match.params.clid;
 
-      var numPage = this.props.match.params.clid.slice(-1);
+      //let numPage=this.props.match.params.clid.slice(-1);
       var numberPage = 0;
-      var n = Number.parseInt(numPage);
+      var n = Number.parseInt(this.props.match.params.clid);
       if (n) numberPage = n;
 
       return _react2.default.createElement(_PageInfo2.default, _extends({ pageId: pageId, numberPage: numberPage }, this.props.info));
@@ -36756,12 +36756,14 @@ var PageInfo = function (_React$PureComponent) {
       _events.events.addListener('CancelAdd', _this.cancelAdd);
       _events.events.addListener('CloseImg', _this.closeImg);
       _events.events.addListener('ShowImg', _this.showImg);
-
-      _this.setPage();
+      _this.setState = function () {
+        return;
+      };
     }, _this.setPage = function () {
       var page = '';
+
       if (_this.props.numberPage) {
-        page = _this.props.pageId.slice(0, 1);_this.setState({ pageId: page });
+        page = _this.props.pageId.slice(-1);_this.setState({ pageId: page });
       }
       if (_this.props.pageId == 'A' || page == 'A') {
         _this.setState({ page: 'pageA' });
@@ -36840,7 +36842,7 @@ var PageInfo = function (_React$PureComponent) {
             return _react2.default.createElement(
               'li',
               { key: _this2.state.page + n },
-              _react2.default.createElement(_Page2.default, { point: _this2.state.pageId + n })
+              _react2.default.createElement(_Page2.default, { point: n + _this2.state.pageId, page: n + '' })
             );
           });
           if (this.props.numberPage <= 1) info = info.slice(0, 5);else {
@@ -36920,7 +36922,7 @@ var PageInfo = function (_React$PureComponent) {
             'Количество строк на странице: '
           ),
           _react2.default.createElement(_Page2.default, { point: this.state.pageId, page: 'All' }),
-          _react2.default.createElement(_Page2.default, { point: this.state.pageId + 1, page: '5' })
+          _react2.default.createElement(_Page2.default, { point: 1 + this.state.pageId, page: '5' })
         ),
         _react2.default.createElement(
           'div',

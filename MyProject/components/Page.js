@@ -13,7 +13,7 @@ class Page extends React.PureComponent {
      if(!this.props.page)
     return (
       <div className='Nav'>
-       <NavLink to={"/page/"+this.props.point} className="ElemList" >{this.props.point.slice(-1)}</NavLink>
+       <NavLink to={"/page/"+this.props.point} className="ElemList" >{this.props.point}</NavLink>
       </div>
     );
 

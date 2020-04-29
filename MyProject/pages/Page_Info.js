@@ -24,6 +24,7 @@ class Page_Info extends React.PureComponent {
     this.loadData();
   }
 
+
   loadData=()=> {
     var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
     let sp = new URLSearchParams();
@@ -114,9 +115,9 @@ class Page_Info extends React.PureComponent {
 
     let pageId=this.props.match.params.clid;
 
-    let numPage=this.props.match.params.clid.slice(-1);
+    //let numPage=this.props.match.params.clid.slice(-1);
     var numberPage=0;
-    var n=Number.parseInt(numPage);
+    var n=Number.parseInt(this.props.match.params.clid);
     if(n) numberPage=n;
     
     

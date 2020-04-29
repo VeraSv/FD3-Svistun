@@ -38,8 +38,9 @@ class PageInfo extends React.PureComponent {
     events.addListener('CancelAdd',this.cancelAdd);
     events.addListener('CloseImg',this.closeImg);
     events.addListener('ShowImg',this.showImg);
-   
-    this.setPage();
+    this.setState = ()=>{
+      return;
+  };
     
   };
    
@@ -58,10 +59,12 @@ class PageInfo extends React.PureComponent {
 
 setPage=()=> {
   let page='';
-  if(this.props.numberPage) { page=this.props.pageId.slice(0,1); this.setState({pageId:page})}
+ 
+  if(this.props.numberPage) { page=this.props.pageId.slice(-1); this.setState({pageId:page})}
   if(this.props.pageId=='A'||page=='A'){this.setState({page:'pageA'})}
   if(this.props.pageId=='Б'||page=='Б'){this.setState({page:'pageB'})}
   if(this.props.pageId=='В'||page=='В'){this.setState({page:'pageV'})}
+  
 }
 
   showImg=(value,url)=>{
@@ -132,7 +135,7 @@ setPage=()=> {
         for(let i=1; i<=Math.ceil(this.state.data[this.state.page].length / 5); i++) {
           numberH.push(i)
         }
-        let number=numberH.map(n => {return <li key={this.state.page+n}><Page point={this.state.pageId+n} /></li>})
+        let number=numberH.map(n => {return <li key={this.state.page+n}><Page point={n+this.state.pageId} page={n+''}/></li>})
         if(this.props.numberPage<=1)info=info.slice(0,5)
         else {
           var prePage=5*(this.props.numberPage-1);
@@ -170,7 +173,7 @@ setPage=()=> {
          <span className={'NumberPage'}>{'Количество строк на странице: '}</span>
          <Page point={this.state.pageId} page={'All'}></Page>
            
-        <Page point={this.state.pageId+1} page={'5'}></Page>
+        <Page point={1+this.state.pageId} page={'5'}></Page>
         
        </div>
        <div>{newCard}</div>
