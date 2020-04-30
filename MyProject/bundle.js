@@ -36198,7 +36198,6 @@ var Page_Info = function (_React$PureComponent) {
 
       var pageId = this.props.match.params.clid;
 
-      //let numPage=this.props.match.params.clid.slice(-1);
       var numberPage = 0;
       var n = Number.parseInt(this.props.match.params.clid);
       if (n) numberPage = n;
