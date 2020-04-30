@@ -40,7 +40,7 @@ class PageInfo extends React.PureComponent {
     events.addListener('ShowImg',this.showImg);
     this.setState = ()=>{
       return;
-  };
+    };
     
   };
    
@@ -130,6 +130,7 @@ setPage=()=> {
     if(this.state.page) {
       info=this.state.data[this.state.page].map(i=> {let cardState; if(this.state.cardEdit==i.id && this.state.cardState==2) cardState=2; else cardState=1; return <Info  key={i.id} cardState={cardState} info={i} page={this.state.page} disabled={ this.state.changeCard} disabledDelete={this.state.disabledDelete}/>});
       if(this.state.img) image= <Image src={this.state.imgUrl}/>
+
       if(this.props.numberPage)  {
         let numberH=[];
         for(let i=1; i<=Math.ceil(this.state.data[this.state.page].length / 5); i++) {
