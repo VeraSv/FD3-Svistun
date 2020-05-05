@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { SpriteComponent } from './sprite.component';
-import {SpriteImgComponent} from './sprite-img.component'
+import {SpritebgDirective} from './sprite-bg.attr.directive'
 
 @NgModule({
   declarations: [
-    SpriteComponent, SpriteImgComponent
+    SpriteComponent, SpritebgDirective
   ],
   imports: [
     BrowserModule
