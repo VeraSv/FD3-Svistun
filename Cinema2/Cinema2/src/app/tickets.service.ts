@@ -35,7 +35,6 @@ getBusySit():Array<{place:number, status:string}> {
 
 orderSit(n:number):void {
     let arr = [...this.places];
-    //let places=[...this.hall]
     this.numPlace=[];
     let num:number=0;
    for(let i=0; i<arr.length; i++) {
@@ -53,8 +52,6 @@ orderSit(n:number):void {
   
 }
 
-getPlace():Array<boolean> {
-    return this.hall
-}
+
 
 }
